@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<title>3RP System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="color.css">
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />-->
+
+<style>
+body {font-family: "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
+</style>
+<body>
+
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:250px;" id="mySidebar">
+  <a class="w3-bar-item w3-button w3-border-bottom w3-large" style="background-color: #fff" href="#"><img src="images/logo.png" style="width:80%;"></a>
+  <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
+  <a class="w3-bar-item w3-button w3-teal bolded-bar-title" href="#"><i class="fa fa-home"></i> Home</a>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('demo')" href="javascript:void(0)"><i class="fa fa-hospital-o"></i> Clinics <i class="fa fa-caret-down"></i></a>
+    <div id="demo" class="w3-hide">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-wheelchair"></i> Patients</a>	
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-user-md"></i> Doctors</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-flask"></i> Laboratory</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-calendar-check-o"></i> Appointments</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('acc')" href="javascript:void(0)"><i class="fa fa-calculator"></i> Accounting <i class="fa fa-caret-down"></i></a>
+    <div id="acc" class="w3-hide">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-credit-card"></i> Accounts Payable</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-usd"></i> Accounts Receivable</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-money"></i> Income</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-chain-broken"></i> Expenses</a>	
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-handshake-o"></i> Contracts</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('hr')" href="javascript:void(0)"><i class="fa fa-id-card-o"></i> Human Resources <i class="fa fa-caret-down"></i></a>
+    <div id="hr" class="w3-hide">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-group"></i> Employees</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-paypal"></i> Payroll</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('sm')" href="javascript:void(0)"><i class="fa fa-shopping-cart"></i> Sales and Marketing <i class="fa fa-caret-down"></i></a>
+    <div id="sm" class="w3-hide">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-bar-chart"></i> Sales</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-chain"></i> Suppliers</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-male"></i><i class="fa fa-female"></i> Customers</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-retweet"></i> Refunds</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('inv')" href="javascript:void(0)"><i class="fa fa-archive"></i> Inventory <i class="fa fa-caret-down"></i></a>
+    <div id="inv" class="w3-hide">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-sign-in"></i> Imports</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-sign-out"></i> Exports</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('rep')" href="javascript:void(0)"><i class="fa fa-line-chart"></i> Reports <i class="fa fa-caret-down"></i></a>
+    <div id="rep" class="w3-hide">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-file-text-o"></i> Patients</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-dashboard"></i> Sales</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-paste"></i> Accounts</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-pencil-square-o"></i> Inventory</a>
+    </div>
+  </div>
+</nav>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+  <span id="myIntro" class="w3-hide">3RP System: Introduction</span></p>
+</div>
+
+<header class="w3-container w3-theme" style="padding:21px 32px">
+  <h1 class="w3-xxlarge">3RP System</h1>
+</header>
+
+<div class="w3-container" style="padding:32px">
+
+<h2>What is W3.CSS?</h2>
+
+<p>W3.CSS is a modern CSS framework with built-in responsiveness:</p>
+
+<ul class="w3-leftbar w3-theme-border" style="list-style:none">
+ <li>Smaller and faster than other CSS frameworks.</li>
+ <li>Easier to learn, and easier to use than other CSS frameworks.</li>
+ <li>Uses standard CSS only (No jQuery or JavaScript library).</li>
+ <li>Speeds up mobile HTML apps.</li>
+ <li>Provides CSS equality for all devices. PC, laptop, tablet, and mobile:</li>
+</ul>
+<br>
+<img src="img_responsive.png" style="width:100%" alt="Responsive">
+
+<hr>
+<h2>W3.CSS is Free</h2>
+<p>W3.CSS is free to use. No license is necessary.</p>
+
+<hr>
+<h2>Easy to Use</h2>
+<div class="w3-container w3-sand w3-leftbar">
+<p><i>Make it as simple as possible, but not simpler.</i><br>
+Albert Einstein</p>
+</div>
+
+<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Tabbed Modal</button>
+
+<div id="id01" class="w3-modal">
+ <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+  <header class="w3-container w3-blue"> 
+   <span onclick="document.getElementById('id01').style.display='none'" 
+   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
+   <h2>Header</h2>
+  </header>
+
+  <div class="w3-bar w3-border-bottom">
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'London')">London</button>
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')">Paris</button>
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  </div>
+
+  <div id="London" class="w3-container city">
+   <h1>London</h1>
+   <p>London is the most populous city in the United Kingdom, with a metropolitan area of over 9 million inhabitants.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+
+  <div id="Paris" class="w3-container city">
+   <h1>Paris</h1>
+   <p>Paris is the capital of France.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+
+  <div id="Tokyo" class="w3-container city">
+   <h1>Tokyo</h1>
+   <p>Tokyo is the capital of Japan.</p><br>
+  </div>
+
+  <div class="w3-container w3-light-grey w3-padding">
+   <button class="w3-btn w3-right w3-white w3-border" 
+   onclick="document.getElementById('id01').style.display='none'">Close</button>
+  </div>
+ </div>
+</div>
+
+
+<hr>
+<h2>W3.CSS Web Site Templates</h2>
+
+<p>We have created some responsive W3CSS templates for you to use.</p>
+<p>You are free to modify, save, share, use or do whatever you want with them:</p>
+
+
+<div class="w3-panel w3-light-grey w3-padding-16 w3-card-2">
+<h3 class="w3-center">Band Template</h3>
+<div class="w3-content" style="max-width:800px">
+<a href="tryw3css_templates_band.htm" target="_blank"  title="Band Demo"><img src="img_temp_band.jpg" style="width:98%;margin:20px 0" alt="Band Template"></a><br>
+<div class="w3-row">
+  <div class="w3-col m6">
+    <a href="tryw3css_templates_band.htm" target="_blank" class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">Demo</a>
+  </div>
+  <div class="w3-col m6">
+    <a href="w3css_templates.asp" class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">More Templates »</a>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="w3-container w3-padding-16 w3-card-2" style="background-color:#eee">
+<h3 class="w3-center">Blog Template</h3>
+<div class="w3-content" style="max-width:800px">
+<img src="img_temp_blog.jpg" style="width:98%;margin:20px 0" alt="Blog Template"><br>
+<div class="w3-row">
+  <div class="w3-col m6">
+    <a href="tryw3css_templates_blog.htm" target="_blank" class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">Demo</a>
+  </div>
+  <div class="w3-col m6">
+    <a href="w3css_templates.asp" class="w3-button w3-padding-large w3-dark-grey" style="width:98.5%">More Templates »</a>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+
+<footer class="w3-container w3-theme" style="padding:0px">
+  
+  <div class="w3-row">
+  <div class="w3-col m6">
+    <p style="padding-left: 12px; text-align:center; ">Powered by: ComX</p>
+  </div>
+  <div class="w3-col m6">
+    <p style="padding-right: 12px; text-align: center; ">Copyright <i class="fa fa-copyright"></i> 2017</p>
+  </div>
+</div>
+</footer>
+     
+</div>
+
+<script>
+// Open and close the sidebar on medium and small screens
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Change style of top container on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+        document.getElementById("myIntro").classList.add("w3-show-inline-block");
+    } else {
+        document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+        document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+    }
+}
+
+// Accordions
+function myAccordion(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme", "");
+    }
+}
+</script>
+
+
+
+<script>//for the modal to work
+document.getElementsByClassName("tablink")[0].click();
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].classList.remove("w3-light-grey");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.classList.add("w3-light-grey");
+}
+</script>
+<script src="bootstrap/js/bootstrap.js"></script>
+ 
+     
+</body>
+</html> 
