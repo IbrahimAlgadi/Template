@@ -224,3 +224,8 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 }
 .data-view table tr:nth-child(even) {background-color: #f2f2f2} 
 
+@media(max-width:500){
+    footer .copy-right{
+        display: none;
+    }
+}

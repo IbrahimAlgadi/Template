@@ -1,0 +1,2 @@
+TODO:
+	1 - Flip The ^ to down one in the sidebar items when selected.
