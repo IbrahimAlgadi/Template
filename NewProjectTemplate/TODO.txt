@@ -1,2 +1,4 @@
 TODO:
 	1 - Flip The ^ to down one in the sidebar items when selected.
+	2 - Add charts to the administration homepage
+	3 - 

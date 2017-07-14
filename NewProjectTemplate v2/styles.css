@@ -212,19 +212,18 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-sidebar .bolded-bar-title{ padding: 0px 0px 0px 5px; font-weight: normal !important; }
 .w3-sidebar .bolded-bar-subitems:hover{ font-weight: bold !important;}
 .w3-sidebar .bolded-bar-subitems:active{ font-weight: bold !important;}
-.w3-button-small{width:25px!important; height:25px !important; padding:0px;}
+
 .data-view table td th {
     border: 1px solid black !important;
 }
-.cx-margin-right{margin-left: 3px;}
+
 .data-view table {
     text-align: left;
     border-collapse: collapse!important;
     width: 100%!important;
 }
 .data-view table tr:nth-child(even) {background-color: #f2f2f2} 
-#accountpane{position: relative; top: -105px; left: 0; width: 100%;}
-#accountpane h4{color: #fff;}
+
 @media(max-width:500){
     footer .copy-right{
         display: none;
