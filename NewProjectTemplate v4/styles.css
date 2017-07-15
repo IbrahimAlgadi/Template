@@ -276,13 +276,3 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
-
-/* User Name On Hover */
-#accountpane a{
-    text-decoration: none;
-}
-
-#accountpane a:hover{
-    text-decoration: underline;
-    color: white;
-}

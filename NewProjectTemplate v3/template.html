@@ -15,23 +15,22 @@ body {font-family: "Roboto", sans-serif}
 
 <body>
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:250px;" id="mySidebar">
-  
   <div class="w3-container" style="width:inherit; height:150px; padding:0px;position: relative; ">
     <img src="images/logo.jpg" style="width:inherit; height:inherit"> 
     <div id="accountpane" class="w3-center">
-        <img src="images/user.png" style="width:25%; height:25%"> 
-        <a href="#"><h4>Dubai company</h4></a>
+    <img src="images/user.png" style="width:25%; height:25%"> 
+    <h4>Dubai company</h4>
     </div>
   </div>
  
   
-  <a class="w3-bar-item w3-button w3-hide-large w3-large w3-animate-leftt" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
+  <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
   
-  <a class="w3-bar-item w3-button w3-teal bolded-bar-title w3-animate-left" href="#"><i class="fa fa-home"></i> Home</a>
+  <a class="w3-bar-item w3-button w3-teal bolded-bar-title" href="#"><i class="fa fa-home"></i> Home</a>
   
   <div>
-    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('demo')" href="javascript:void(0)"><i class="fa fa-hospital-o"></i> Clinics <i class="fa fa-caret-down"></i></a>
-    <div id="demo" class="w3-hide w3-animate-zoom">
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('demo')" href="javascript:void(0)"><i class="fa fa-hospital-o"></i> Clinics <i class="fa fa-caret-down"></i></a>
+    <div id="demo" class="w3-hide">
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-wheelchair"></i> Patients</a>	
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-user-md"></i> Doctors</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-flask"></i> Laboratory</a>
@@ -39,8 +38,8 @@ body {font-family: "Roboto", sans-serif}
     </div>
   </div>
   <div>
-    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('acc')" href="javascript:void(0)"><i class="fa fa-calculator"></i> Accounting <i class="fa fa-caret-down"></i></a>
-    <div id="acc" class="w3-hide w3-animate-zoom">
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('acc')" href="javascript:void(0)"><i class="fa fa-calculator"></i> Accounting <i class="fa fa-caret-down"></i></a>
+    <div id="acc" class="w3-hide">
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-credit-card"></i> Accounts Payable</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-usd"></i> Accounts Receivable</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-money"></i> Income</a>
@@ -49,15 +48,15 @@ body {font-family: "Roboto", sans-serif}
     </div>
   </div>
   <div>
-    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('hr')" href="javascript:void(0)"><i class="fa fa-id-card-o"></i> Human Resources <i class="fa fa-caret-down"></i></a>
-    <div id="hr" class="w3-hide w3-animate-zoom">
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('hr')" href="javascript:void(0)"><i class="fa fa-id-card-o"></i> Human Resources <i class="fa fa-caret-down"></i></a>
+    <div id="hr" class="w3-hide">
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-group"></i> Employees</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-paypal"></i> Payroll</a>
     </div>
   </div>
   <div>
-    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('sm')" href="javascript:void(0)"><i class="fa fa-shopping-cart"></i> Sales and Marketing <i class="fa fa-caret-down"></i></a>
-    <div id="sm" class="w3-hide w3-animate-zoom">
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('sm')" href="javascript:void(0)"><i class="fa fa-shopping-cart"></i> Sales and Marketing <i class="fa fa-caret-down"></i></a>
+    <div id="sm" class="w3-hide">
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-bar-chart"></i> Sales</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-chain"></i> Suppliers</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-male"></i><i class="fa fa-female"></i> Customers</a>
@@ -65,15 +64,15 @@ body {font-family: "Roboto", sans-serif}
     </div>
   </div>
   <div>
-    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('inv')" href="javascript:void(0)"><i class="fa fa-archive"></i> Inventory <i class="fa fa-caret-down"></i></a>
-    <div id="inv" class="w3-hide w3-animate-zoom">
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('inv')" href="javascript:void(0)"><i class="fa fa-archive"></i> Inventory <i class="fa fa-caret-down"></i></a>
+    <div id="inv" class="w3-hide">
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-sign-in"></i> Imports</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-sign-out"></i> Exports</a>
     </div>
   </div>
   <div>
-    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('rep')" href="javascript:void(0)"><i class="fa fa-line-chart"></i> Reports <i class="fa fa-caret-down"></i></a>
-    <div id="rep" class="w3-hide w3-animate-zoom">
+    <a class="w3-bar-item w3-button bolded-bar-title" onclick="myAccordion('rep')" href="javascript:void(0)"><i class="fa fa-line-chart"></i> Reports <i class="fa fa-caret-down"></i></a>
+    <div id="rep" class="w3-hide">
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-file-text-o"></i> Patients</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-dashboard"></i> Sales</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-paste"></i> Accounts</a>
@@ -82,7 +81,7 @@ body {font-family: "Roboto", sans-serif}
   </div>
 </nav>
 
-<div class="w3-overlay w3-hide-large w3-animate-fading w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
@@ -115,14 +114,7 @@ body {font-family: "Roboto", sans-serif}
     
     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Add New"><i class="fa fa-plus"></i> </button>
     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Print"><i class="fa fa-print"></i> </button>
-    
-    <div class="dropdown">
-      <button class="dropbtn w3-button w3-teal w3-round-medium w3-medium"><i class="fa fa-share-square-o" style="padding:0px"></i></button>
-      <div class="dropdown-content w3-animate-zoom">
-        <a href="#"><i class="fa fa-file-pdf-o"></i> PDF</a>
-        <a href="#"><i class="fa fa-file-excel-o"></i> Excel</a>
-      </div>
-    </div>
+    <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Export"><i class="fa fa-share-square-o"></i> </button>
     
     
     <div id="id01" class="w3-modal">
@@ -164,8 +156,8 @@ body {font-family: "Roboto", sans-serif}
 
       <form class="w3-container" action="/action_page.php">
         <div class="w3-section">
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter First Name" name="usrname" required>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Last Name" name="psw" required>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
           
         </div>
       </form>
@@ -185,6 +177,39 @@ body {font-family: "Roboto", sans-serif}
     </div>
   </div>
   
+  <div id="id03" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:350px;">
+
+      <div class="w3-center  w3-teal"><br>
+      <h3>Export</h3>
+      </div>
+
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <div class="w3-container ">
+            <select class="w3-select w3-border w3-center" style="float: left; width: 80%;" name="option">
+                <option value="" selected>PDF</option>
+                <option value="1">Excel</option>
+            </select>         
+        </div>
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <div class="w3-row">
+        <div class="w3-col m4">
+        <button onclick="document.getElementById('id03').style.display='none'" type="button" class="w3-red w3-button w3-large w3-round-medium w3-block w3-section w3-padding ">Cancel <i class="fa fa-close"></i></button>
+        </div>
+        <div class="w3-col m1">&nbsp;</div>
+        <div class="w3-col m7">
+        <button class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit">Export <i class="fa fa-share-square-o"></i></button>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
     </div>
     <div class="w3-col m4 ">
     <div class="w3-container">
@@ -193,26 +218,13 @@ body {font-family: "Roboto", sans-serif}
             <option value="1">Filter 1</option>
             <option value="2">Filter 2</option>
             <option value="3">Filter 3</option>
-            <option value="4">Others</option>
         </select>
         <a href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" title="Filter Results"><i class="fa fa-filter" alt="Filter"></i></a>
     </div>
     </div>
     <div class="w3-right w3-col m4 ">
         <div class="w3-container">
-            <input list="cusom-list" type="text" class="w3-input w3-border" style="float: left; width: 80%;" placeholder="Search.." title="Enter The Seach Term">
-            <!-- We Will Fill This Datalist from database using PHP -->
-            <datalist id="cusom-list">
-                <option value="Ibrahim">
-                <option value="Muhammed">
-                <option value="Missi">
-                <option value="Malik">
-                <option value="Khalid">
-                <option value="Mudather">
-                <option value="Ice">
-                <option value="Inesta">
-                <option value="Homeless">
-            </datalist>
+            <input type="text" class="w3-input w3-border" style="float: left; width: 80%;" placeholder="Search..">
             <a href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" title="Search"><i class="fa fa-search"></i></a>
         </div>
     </div>
@@ -324,8 +336,6 @@ function myAccordion(id) {
         x.previousElementSibling.className.replace(" w3-theme", "");
     }
 }
-
-
 </script>
 
 
