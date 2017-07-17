@@ -53,7 +53,7 @@ body {font-family: "Roboto", sans-serif}
     <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('hr')" href="javascript:void(0)"><i class="fa fa-id-card-o"></i> Human Resources <i class="fa fa-caret-down w3-right"></i></a>
     <div id="hr" class="w3-hide w3-animate-zoom">
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-group"></i> Employees</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="payroll.php">&nbsp;&nbsp;<i class="fa fa-paypal"></i> Payroll</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-paypal"></i> Payroll</a>
     </div>
   </div>
   <div>
