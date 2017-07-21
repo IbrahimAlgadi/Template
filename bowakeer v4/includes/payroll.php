@@ -3,25 +3,16 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class employee extends DatabaseObject {
+class payroll extends DatabaseObject {
 	
-	protected static $table_name="employee";
+	protected static $table_name="payroll";
     
-	protected static $db_fields = array('Id' , 'Name',	'Phone', 'Address', 'Qualifications', 'Date_of_birth', 'Next_of_kin', 'Next_of_kin_phone', 'Annual_leave', 'SSID', 'Driving_license', 'Payroll_id', 'Work_zone');
+	protected static $db_fields = array('Id', 'Start_date', 'Salary', 'Period');
 	
 	public $Id;
-    public $Name;
-	public $Phone;
-	public $Address;
-	public $Qualifications;
-    public $Date_of_birth;
-    public $Next_of_kin;
-    public $Next_of_kin_phone;
-    public $Annual_leave;
-    public $SSID;
-	public $Driving_license;
-    public $Payroll_id;
-    public $Work_zone;
+    public $Start_date;
+	public $Salary;
+	public $Period;
     
 	// Common Database Methods
 	public static function find_all() {
@@ -100,7 +91,7 @@ class employee extends DatabaseObject {
 	
 	public function save() {
 	  // A new record won't have an id yet.
-	  return isset($this->Id) ? $this->update() : $this->create();
+	  return isset($this->id) ? $this->update() : $this->create();
 	}
 	
 	public function create() {
@@ -116,7 +107,7 @@ class employee extends DatabaseObject {
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
 	  if($database->query($sql)) {
-	    $this->Id = $database->insert_id();
+	    $this->id = $database->insert_id();
 	    return true;
 	  } else {
 	    return false;
@@ -136,7 +127,7 @@ class employee extends DatabaseObject {
 		}
 		$sql = "UPDATE ".self::$table_name." SET ";
 		$sql .= join(", ", $attribute_pairs);
-		$sql .= " WHERE Id=". $database->escape_value($this->Id);
+		$sql .= " WHERE Id=". $database->escape_value($this->id);
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;
 	}
@@ -148,7 +139,7 @@ class employee extends DatabaseObject {
 		// - escape all values to prevent SQL injection
 		// - use LIMIT 1
 	  $sql = "DELETE FROM ".self::$table_name;
-	  $sql .= " WHERE Id=". $database->escape_value($this->Id);
+	  $sql .= " WHERE Id=". $database->escape_value($this->id);
 	  $sql .= " LIMIT 1";
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;

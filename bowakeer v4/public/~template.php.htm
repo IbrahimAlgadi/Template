@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<title>3RP System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="color.css">
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />-->
+
+<style>
+body {font-family: "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
+</style>
+
+<body>
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:250px;" id="mySidebar">
+  
+  <div class="w3-container" style="width:inherit; height:150px; padding:0px;position: relative; ">
+    <img src="images/logo.jpg" style="width:inherit; height:inherit"> 
+    <div id="accountpane" class="w3-center">
+        <img src="images/user.png" style="width:25%; height:25%"> 
+        <a href="#"><h4>Dubai company</h4></a>
+    </div>
+  </div>
+ 
+  
+  <a class="w3-bar-item w3-button w3-hide-large w3-large w3-animate-leftt" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
+  
+  <a class="w3-bar-item w3-button w3-teal bolded-bar-title w3-animate-left" href="#"><i class="fa fa-home"></i> Home</a>
+  
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('demo')" href="javascript:void(0)"><i class="fa fa-hospital-o"></i> Clinics <i class="fa fa-caret-down"></i></a>
+    <div id="demo" class="w3-hide w3-animate-zoom">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-wheelchair"></i> Patients</a>	
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-user-md"></i> Doctors</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-flask"></i> Laboratory</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-calendar-check-o"></i> Appointments</a>
+    </div>
+  </div>
+  
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('acc')" href="javascript:void(0)"><i class="fa fa-calculator"></i> Accounting <i class="fa fa-caret-down"></i></a>
+    <div id="acc" class="w3-hide w3-animate-zoom">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-credit-card"></i> Accounts Payable</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-usd"></i> Accounts Receivable</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-money"></i> Income</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-chain-broken"></i> Expenses</a>	
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-handshake-o"></i> Contracts</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('hr')" href="javascript:void(0)"><i class="fa fa-id-card-o"></i> Human Resources <i class="fa fa-caret-down"></i></a>
+    <div id="hr" class="w3-hide w3-animate-zoom">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-group"></i> Employees</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-paypal"></i> Payroll</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('sm')" href="javascript:void(0)"><i class="fa fa-shopping-cart"></i> Sales and Marketing <i class="fa fa-caret-down"></i></a>
+    <div id="sm" class="w3-hide w3-animate-zoom">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-bar-chart"></i> Sales</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-chain"></i> Suppliers</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-male"></i><i class="fa fa-female"></i> Customers</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-retweet"></i> Refunds</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('inv')" href="javascript:void(0)"><i class="fa fa-archive"></i> Inventory <i class="fa fa-caret-down"></i></a>
+    <div id="inv" class="w3-hide w3-animate-zoom">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-sign-in"></i> Imports</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-sign-out"></i> Exports</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('rep')" href="javascript:void(0)"><i class="fa fa-line-chart"></i> Reports <i class="fa fa-caret-down"></i></a>
+    <div id="rep" class="w3-hide w3-animate-zoom">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-file-text-o"></i> Patients</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-dashboard"></i> Sales</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-paste"></i> Accounts</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#"><i class="fa fa-pencil-square-o"></i> Inventory</a>
+    </div>
+  </div>
+</nav>
+
+<div class="w3-overlay w3-hide-large w3-animate-fading w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+  <span id="myIntro" class="w3-hide">3RP System: Introduction</span></p>
+</div>
+
+<header class="w3-container w3-theme" style="padding:21px 32px">
+  <h1 class="w3-xlarge">3RP System</h1>
+  
+  <div class="w3-row">
+    <div class="w3-col m12">
+    <div class="w3-bar">
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Home</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 1</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 2</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 3</a>
+</div> 
+</div>
+    </div>
+  
+</header>
+
+<div class="w3-container" style="padding:32px;">
+
+    
+    <div class="w3-row">
+    <div class="w3-col m4 ">
+    
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Add New"><i class="fa fa-plus"></i> </button>
+    <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Print"><i class="fa fa-print"></i> </button>
+    
+    <div class="dropdown">
+      <button class="dropbtn w3-button w3-teal w3-round-medium w3-medium"><i class="fa fa-share-square-o" style="padding:0px"></i></button>
+      <div class="dropdown-content w3-animate-zoom">
+        <a href="#"><i class="fa fa-file-pdf-o"></i> PDF</a>
+        <a href="#"><i class="fa fa-file-excel-o"></i> Excel</a>
+      </div>
+    </div>
+    
+    
+    <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+      <div class="w3-center  w3-teal"><br>
+      <h3>Add</h3>
+      </div>
+
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter First Name" name="usrname" required>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Last Name" name="psw" required>
+          
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <div class="w3-row">
+        <div class="w3-col m4">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-red w3-button w3-large w3-round-medium w3-block w3-section w3-padding ">Cancel <i class="fa fa-close"></i></button>
+        </div>
+        <div class="w3-col m1">&nbsp;</div>
+        <div class="w3-col m7">
+        <button class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit">Save <i class="fa fa-floppy-o"></i></button>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+      <div class="w3-center  w3-teal"><br>
+      <h3>Print</h3>
+      </div>
+
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter First Name" name="usrname" required>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Last Name" name="psw" required>
+          
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <div class="w3-row">
+        <div class="w3-col m4">
+        <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-red w3-button w3-large w3-round-medium w3-block w3-section w3-padding ">Cancel <i class="fa fa-close"></i></button>
+        </div>
+        <div class="w3-col m1">&nbsp;</div>
+        <div class="w3-col m7">
+        <button class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit">Print <i class="fa fa-print"></i></button>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+    </div>
+    <div class="w3-col m4 ">
+    <div class="w3-container">
+        <select class="w3-select w3-border" style="float: left; width: 80%;" name="option">
+            <option value="" selected>Choose Filter</option>
+            <option value="1">Filter 1</option>
+            <option value="2">Filter 2</option>
+            <option value="3">Filter 3</option>
+            <option value="4">Others</option>
+        </select>
+        <a href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" title="Filter Results"><i class="fa fa-filter" alt="Filter"></i></a>
+    </div>
+    </div>
+    <div class="w3-right w3-col m4 ">
+        <div class="w3-container">
+            <input list="cusom-list" type="text" class="w3-input w3-border" style="float: left; width: 80%;" placeholder="Search.." title="Enter The Seach Term">
+            <!-- We Will Fill This Datalist from database using PHP -->
+            <datalist id="cusom-list">
+                <option value="Ibrahim">
+                <option value="Muhammed">
+                <option value="Missi">
+                <option value="Malik">
+                <option value="Khalid">
+                <option value="Mudather">
+                <option value="Ice">
+                <option value="Inesta">
+                <option value="Homeless">
+            </datalist>
+            <a href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" title="Search"><i class="fa fa-search"></i></a>
+        </div>
+    </div>
+    </div>
+<br />
+    <div class="w3-row">
+    <div  class="w3-col m12" style="">
+        <div class="data-view" style="overflow-x:auto; ">
+          <table>
+            <tr class="w3-teal">
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Points</th>
+              <th>Points</th>
+              <th>Points</th>
+              <th>Point</th>
+              <th class="w3-center w3-right"></th>
+            </tr>
+            <tr>
+              <td>Jill</td>
+              <td>Smith</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td>50</td>
+              <td class="w3-center  w3-right"><a href="#" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a> <a href="#" class="w3-button w3-button-small w3-red" title="Delete"><i class="fa fa-trash"></i></a> <a href="#" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+            </tr>
+            <tr>
+              <td>Eve</td>
+              <td>Jackson</td>
+              <td>94</td>
+              <td>94</td>
+              <td>94</td>
+              <td>94</td>
+              <td class="w3-center w3-right"><a href="#" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a> <a href="#" class="w3-button w3-button-small w3-red" title="Delete"><i class="fa fa-trash"></i></a> <a href="#" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+            </tr>
+            <tr>
+              <td>Adam</td>
+              <td>Johnson</td>
+              <td>67</td>
+              <td>67</td>
+              <td>67</td>
+              <td>67</td>
+              <td class="w3-center w3-right"><a href="#" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a> <a href="#" class="w3-button w3-button-small w3-red" title="Delete"><i class="fa fa-trash"></i></a> <a href="#" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+            </tr>
+          </table>
+        </div>
+    </div>
+    
+    <div class="w3-col m12">
+        <div class="w3-center" >
+        <br />
+        <div class="w3-bar w3-border w3-round">
+          <a href="#" class="w3-bar-item w3-button">&laquo;</a>
+          <a href="#" class="w3-bar-item w3-button w3-teal">1</a>
+          <a href="#" class="w3-bar-item w3-button">2</a>
+          <a href="#" class="w3-bar-item w3-button">3</a>
+          <a href="#" class="w3-bar-item w3-button">4</a>
+          <a href="#" class="w3-bar-item w3-button">&raquo;</a>
+        </div>
+    </div>
+    </div>
+    
+    </div>
+</div>
+
+<br />
+<font size='1'><table class='xdebug-error xe-warning' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Warning: include(../layout/footer.php): failed to open stream: No such file or directory in C:\xampp2\htdocs\bowakeer\public\template.php on line <i>285</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0336</td><td bgcolor='#eeeeec' align='right'>144352</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\xampp2\htdocs\bowakeer\public\template.php' bgcolor='#eeeeec'>..\template.php<b>:</b>0</td></tr>
+</table></font>
+<br />
+<font size='1'><table class='xdebug-error xe-warning' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Warning: include(): Failed opening '../layout/footer.php' for inclusion (include_path='.;C:\php\pear') in C:\xampp2\htdocs\bowakeer\public\template.php on line <i>285</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0336</td><td bgcolor='#eeeeec' align='right'>144352</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\xampp2\htdocs\bowakeer\public\template.php' bgcolor='#eeeeec'>..\template.php<b>:</b>0</td></tr>
+</table></font>
+     
+</div>
+
+<script>
+// Open and close the sidebar on medium and small screens
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Change style of top container on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+        document.getElementById("myIntro").classList.add("w3-show-inline-block");
+    } else {
+        document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+        document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+    }
+}
+
+
+// Accordions
+function myAccordion(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme", "");
+    }
+}
+
+
+</script>
+
+
+
+<script>//for the modal to work
+document.getElementsByClassName("tablink")[0].click();
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].classList.remove("w3-light-grey");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.classList.add("w3-light-grey");
+}
+</script>
+<script src="bootstrap/js/bootstrap.js"></script>
+ 
+     
+</body>
+</html> 
+PHP Warning:  include(../layout/footer.php): failed to open stream: No such file or directory in C:\xampp2\htdocs\bowakeer\public\template.php on line 285
+PHP Stack trace:
+PHP   1. {main}() C:\xampp2\htdocs\bowakeer\public\template.php:0
+PHP Warning:  include(): Failed opening '../layout/footer.php' for inclusion (include_path='.;C:\php\pear') in C:\xampp2\htdocs\bowakeer\public\template.php on line 285
+PHP Stack trace:
+PHP   1. {main}() C:\xampp2\htdocs\bowakeer\public\template.php:0

@@ -1,15 +1,14 @@
-function ajax_request(up_id){
-    
+function ajax_request(get_val){
     var xmlhtml = new XMLHttpRequest();
     
     xmlhtml.onreadystatechange = function(){
         if (xmlhtml.readyState == 4 && xmlhtml.status == 200){
-           var result =  document.getElementById("update-place");
+           var result =  document.getElementById("table-data-view");
            result.innerHTML = xmlhtml.responseText;
         }
     }
     
-    xmlhtml.open("GET", "../actions/edit/edit_employee.php", true);
+    xmlhtml.open("GET", "../layout/table.php", true);
     xmlhtml.send();
 }
 

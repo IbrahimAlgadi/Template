@@ -100,7 +100,7 @@ class employee extends DatabaseObject {
 	
 	public function save() {
 	  // A new record won't have an id yet.
-	  return isset($this->Id) ? $this->update() : $this->create();
+	  return isset($this->id) ? $this->update() : $this->create();
 	}
 	
 	public function create() {
@@ -116,7 +116,7 @@ class employee extends DatabaseObject {
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
 	  if($database->query($sql)) {
-	    $this->Id = $database->insert_id();
+	    $this->id = $database->insert_id();
 	    return true;
 	  } else {
 	    return false;
@@ -136,7 +136,7 @@ class employee extends DatabaseObject {
 		}
 		$sql = "UPDATE ".self::$table_name." SET ";
 		$sql .= join(", ", $attribute_pairs);
-		$sql .= " WHERE Id=". $database->escape_value($this->Id);
+		$sql .= " WHERE Id=". $database->escape_value($this->id);
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;
 	}
@@ -148,7 +148,7 @@ class employee extends DatabaseObject {
 		// - escape all values to prevent SQL injection
 		// - use LIMIT 1
 	  $sql = "DELETE FROM ".self::$table_name;
-	  $sql .= " WHERE Id=". $database->escape_value($this->Id);
+	  $sql .= " WHERE Id=". $database->escape_value($this->id);
 	  $sql .= " LIMIT 1";
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;

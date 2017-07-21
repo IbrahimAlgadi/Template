@@ -6,14 +6,19 @@
 <link rel="stylesheet" href="stylesheets/color.css">
 <link rel="stylesheet" href="stylesheets/font.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <!--<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />-->
 
 <style>
 body {font-family: "Roboto", sans-serif}
 .w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
 </style>
-<script type="text/javascript" src="javascripts/ajax.js"></script>
+
+<script type="text/javascript" src="print/jspdf/libs/sprintf.js"></script>
+<script type="text/javascript" src="print/jspdf/jspdf.js"></script>
+<script type="text/javascript" src="print/jspdf/libs/base64.js"></script>
+<script type="text/javascript" src="print/jquery.js"></script>
+<script type="text/javascript" src="print/tableExport.js"></script>
+<script type="text/javascript" src="print/jquery.base64.js"></script>
 
 <body>
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:250px;" id="mySidebar">
@@ -93,5 +98,5 @@ body {font-family: "Roboto", sans-serif}
 <!-- When Scrolling Down this Thing appears -->
 <div id="myTop" class="w3-container w3-top w3-theme w3-large">
   <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">I3RP System</span></p>
+  <span id="myIntro" class="w3-hide">3RP System: Introduction</span></p>
 </div>

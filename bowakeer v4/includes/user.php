@@ -3,33 +3,45 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class employee extends DatabaseObject {
+class User extends DatabaseObject {
 	
-	protected static $table_name="employee";
-    
-	protected static $db_fields = array('Id' , 'Name',	'Phone', 'Address', 'Qualifications', 'Date_of_birth', 'Next_of_kin', 'Next_of_kin_phone', 'Annual_leave', 'SSID', 'Driving_license', 'Payroll_id', 'Work_zone');
+	protected static $table_name="users";
+	protected static $db_fields = array('id', 'username', 'password', 'first_name', 'last_name');
 	
-	public $Id;
-    public $Name;
-	public $Phone;
-	public $Address;
-	public $Qualifications;
-    public $Date_of_birth;
-    public $Next_of_kin;
-    public $Next_of_kin_phone;
-    public $Annual_leave;
-    public $SSID;
-	public $Driving_license;
-    public $Payroll_id;
-    public $Work_zone;
-    
+	public $id;
+	public $username;
+	public $password;
+	public $first_name;
+	public $last_name;
+	
+  public function full_name() {
+    if(isset($this->first_name) && isset($this->last_name)) {
+      return $this->first_name . " " . $this->last_name;
+    } else {
+      return "";
+    }
+  }
+
+	public static function authenticate($username="", $password="") {
+    global $database;
+    $username = $database->escape_value($username);
+    $password = $database->escape_value($password);
+
+    $sql  = "SELECT * FROM users ";
+    $sql .= "WHERE username = '{$username}' ";
+    $sql .= "AND password = '{$password}' ";
+    $sql .= "LIMIT 1";
+    $result_array = self::find_by_sql($sql);
+		return !empty($result_array) ? array_shift($result_array) : false;
+	}
+
 	// Common Database Methods
 	public static function find_all() {
 		return self::find_by_sql("SELECT * FROM ".self::$table_name);
   }
   
   public static function find_by_id($id=0) {
-    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE Id={$Id} LIMIT 1");
+    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE id={$id} LIMIT 1");
 		return !empty($result_array) ? array_shift($result_array) : false;
   }
   
@@ -56,9 +68,9 @@ class employee extends DatabaseObject {
     $object = new self;
 		// Simple, long-form approach:
 		// $object->id 				= $record['id'];
-		// $object->date 	= $record['date'];
-		// $object->status 	= $record['status'];
-		// $object->customer_id = $record['customer_id'];
+		// $object->username 	= $record['username'];
+		// $object->password 	= $record['password'];
+		// $object->first_name = $record['first_name'];
 		// $object->last_name 	= $record['last_name'];
 		
 		// More dynamic, short-form approach:
@@ -100,7 +112,7 @@ class employee extends DatabaseObject {
 	
 	public function save() {
 	  // A new record won't have an id yet.
-	  return isset($this->Id) ? $this->update() : $this->create();
+	  return isset($this->id) ? $this->update() : $this->create();
 	}
 	
 	public function create() {
@@ -116,7 +128,7 @@ class employee extends DatabaseObject {
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
 	  if($database->query($sql)) {
-	    $this->Id = $database->insert_id();
+	    $this->id = $database->insert_id();
 	    return true;
 	  } else {
 	    return false;
@@ -136,7 +148,7 @@ class employee extends DatabaseObject {
 		}
 		$sql = "UPDATE ".self::$table_name." SET ";
 		$sql .= join(", ", $attribute_pairs);
-		$sql .= " WHERE Id=". $database->escape_value($this->Id);
+		$sql .= " WHERE id=". $database->escape_value($this->id);
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;
 	}
@@ -148,7 +160,7 @@ class employee extends DatabaseObject {
 		// - escape all values to prevent SQL injection
 		// - use LIMIT 1
 	  $sql = "DELETE FROM ".self::$table_name;
-	  $sql .= " WHERE Id=". $database->escape_value($this->Id);
+	  $sql .= " WHERE id=". $database->escape_value($this->id);
 	  $sql .= " LIMIT 1";
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;
@@ -156,7 +168,7 @@ class employee extends DatabaseObject {
 		// NB: After deleting, the instance of User still 
 		// exists, even though the database entry does not.
 		// This can be useful, as in:
-		//   echo $user->customer_id . " was deleted";
+		//   echo $user->first_name . " was deleted";
 		// but, for example, we can't call $user->update() 
 		// after calling $user->delete().
 	}
