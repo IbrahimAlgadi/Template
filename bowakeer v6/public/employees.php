@@ -43,10 +43,10 @@
   <div class="w3-row">
     <div class="w3-col m12">
     <div class="w3-bar">
-   <a href="employees.php" class="w3-bar-item w3-button w3-round-medium">Home</a>
-   <a href="allowances.php" class="w3-bar-item w3-button w3-round-medium">Allowances</a>
-   <a href="employee_cars.php" class="w3-bar-item w3-button w3-round-medium">Employee Cars</a>
-   <a href="automotives.php" class="w3-bar-item w3-button w3-round-medium">Automotives</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Home</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 1</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 2</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 3</a>
 </div> 
 </div>
     </div>
@@ -59,9 +59,8 @@
     
     <div class="w3-row">
     <div class="w3-col m3 ">
-    <!--RFC: this add button is used to call the add model -->
+    
     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Add New"><i class="fa fa-plus"></i> </button>
-    <!--RFC: This print button used for calling the print model -->
     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Print"><i class="fa fa-print"></i> </button>
     
     <div id="id01" class="w3-modal">
@@ -126,7 +125,7 @@
       <div class="w3-row w3-padding">
       <div id="modal-data"  class="w3-col m12" style="">
         <div id="table-modal-view" class="data-view" style="overflow-x:auto; ">
-        <!--RFC: This is the table that show when we press the print button, it grabs all the database data and print it -->
+        <!--RFC: This is the table that we show in the main page, it grabs the data and use it as pages -->
           <?php
             echo " <table class=\"w3-dash\">            
             <tr class=\"w3-teal\">
@@ -200,7 +199,6 @@
              <input list="cusom-list" type="text" class="w3-input w3-border cx-margin-right" style="float: left; width: 50%;" placeholder="Search.." title="Enter The Seach Term">
             <!-- We Will Fill This Datalist from database using PHP -->
             <datalist id="cusom-list">
-            <!--RFC: you need to change the select tarm and the database name -->
                 <?php
                    $sql = "SELECT name FROM employee;";
                    $result = employee::find_by_sql($sql);
@@ -221,7 +219,6 @@
     <div class="w3-row">
     <div class="w3-col m12" style="">
         <div id="table-data-view" class="data-view" style="overflow-x:auto; ">
-        <!--RFC: This is the main page table -->
           <?php
             echo " <table>            
             <tr class=\"w3-teal\">
@@ -246,11 +243,8 @@
                 <td><?php echo $emp->payroll_id; ?></td>
                 <td><?php echo $emp->work_zone; ?></td>
                 <td class="w3-center  w3-right">
-                <!--RFC: The edit button send the id to the edit_employee.php -->
                 <a href="edit_employee.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
-                <!--RFC: The delete button submit the id to the delete_employee.php -->
                 <a href="actions/delete/delete_employee.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete employee: <?php echo $emp->name?>?')"><i class="fa fa-trash"></i></a>
-                <!--RFC: The print function grabs the data and open anothe page print_emplpyee.php from it you can print the table -->
                 <a href="actions/print/print_employee.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
             </tr>
             <?php endforeach; ?>
@@ -263,7 +257,6 @@
         <br />
         <div class="w3-bar w3-border w3-round">
         
-        <!--RFC: This code is for pagination -->
         <?php
 	if($pagination->total_pages() > 1) {
 		

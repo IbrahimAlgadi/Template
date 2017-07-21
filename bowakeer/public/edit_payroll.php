@@ -16,7 +16,7 @@
 ?>
 
 <header class="w3-container w3-theme" style="padding:21px 32px">
-  <h1 class="w3-xlarge">Update Employee</h1>
+  <h1 class="w3-xlarge">Update Payroll</h1>
   
   
 </header>
@@ -34,39 +34,15 @@
         <br />
         
 		<form class="w3-container" action="actions/update/update_payroll.php" method="POST">
+ <!--RFC: This Code grabs the edited data and post it to the update_payroll.php -->
 <?php foreach($edit_payroll as $pay): ?>
         <div class="w3-section">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $pay->id; ?>" name="id" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->name; ?>" name="name" required>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $pay->phone; ?>" name="phone" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->address; ?>" name="address" required>
-          <input class="w3-input w3-border" type="text" value="<?php echo $pay->qualifications; ?>" name="qualifications" required>
-          <input class="w3-input w3-border" type="date"  value="<?php echo $pay->date_of_birth; ?>" name="dob" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->next_of_kin; ?>" name="nok" required>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $pay->next_of_kin_phone; ?>" name="nokphone" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->annual_leave; ?>" name="al" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->ssid; ?>" name="ssid" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->driving_license; ?>" name="dl" required>
-          <select class="w3-select w3-border" name="pid">
-          <?php
-                   $sql = "SELECT id FROM payroll";
-                   $result = payroll::find_by_sql($sql);
-                   foreach($result as $op){
-                    $option = "<option value=\"{$op->id}\"" ;
-                     if($op->id==$pay->payroll_id){
-                       $option .= " selected ";
-                     }
-                     $option.= "> {$op->id}</option>";
-                     echo $option;
-                   }
-                ?></select>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->work_zone; ?>" name="workz" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->start_date; ?>" name="sdate" required>
+          <input class="w3-input w3-border" type="number"  value="<?php echo $pay->salary; ?>" name="salary" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $pay->period; ?>" name="period" required>
         </div>
-<?php endforeach; ?>   
-
-      
-		
-		
+<?php endforeach; ?>   		
     </div>
     </div>
     <div class="w3-col m3">
@@ -81,6 +57,7 @@
         </div>
         <div class="w3-col m1">&nbsp;</div>
         <div class="w3-col m3">
+        <!--RFC: This is the button when presesd will submit the data to the update_payroll.php -->
         <button  class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" name="submit" value="submit" type="submit">Update <i class="fa fa-refresh w3-spin"></i></button>
         </div>
 		<div class="w3-col m3">&nbsp;</div>
