@@ -28,7 +28,6 @@ require_once(LIB_PATH.DS.'pagination.php');
 require_once(LIB_PATH.DS.'user.php');
 require_once(LIB_PATH.DS.'employee.php');
 require_once(LIB_PATH.DS.'payroll.php');
-require_once(LIB_PATH.DS.'end_voucher.php');
 require_once(LIB_PATH.DS.'comment.php');
 
 ?>
