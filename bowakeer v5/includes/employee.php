@@ -7,21 +7,21 @@ class employee extends DatabaseObject {
 	
 	protected static $table_name="employee";
     
-	protected static $db_fields = array('id' , 'name',	'phone', 'address', 'qualifications', 'date_of_birth', 'next_of_kin', 'next_of_kin_phone', 'annual_leave', 'ssid', 'driving_license', 'payroll_id', 'work_zone');
+	protected static $db_fields = array('Id' , 'Name',	'Phone', 'Address', 'Qualifications', 'Date_of_birth', 'Next_of_kin', 'Next_of_kin_phone', 'Annual_leave', 'SSID', 'Driving_license', 'Payroll_id', 'Work_zone');
 	
-	public $id;
-    public $name;
-	public $phone;
-	public $address;
-	public $qualifications;
-    public $date_of_birth;
-    public $next_of_kin;
-    public $next_of_kin_phone;
-    public $annual_leave;
-    public $ssid;
-	public $driving_license;
-    public $payroll_id;
-    public $work_zone;
+	public $Id;
+    public $Name;
+	public $Phone;
+	public $Address;
+	public $Qualifications;
+    public $Date_of_birth;
+    public $Next_of_kin;
+    public $Next_of_kin_phone;
+    public $Annual_leave;
+    public $SSID;
+	public $Driving_license;
+    public $Payroll_id;
+    public $Work_zone;
     
 	// Common Database Methods
 	public static function find_all() {
@@ -29,7 +29,7 @@ class employee extends DatabaseObject {
   }
   
   public static function find_by_id($id=0) {
-    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE id={$id} LIMIT 1");
+    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE Id={$Id} LIMIT 1");
 		return !empty($result_array) ? array_shift($result_array) : false;
   }
   
@@ -100,7 +100,7 @@ class employee extends DatabaseObject {
 	
 	public function save() {
 	  // A new record won't have an id yet.
-	  return isset($this->id) ? $this->update() : $this->create();
+	  return isset($this->Id) ? $this->update() : $this->create();
 	}
 	
 	public function create() {
@@ -116,7 +116,7 @@ class employee extends DatabaseObject {
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
 	  if($database->query($sql)) {
-	    $this->id = $database->insert_id();
+	    $this->Id = $database->insert_id();
 	    return true;
 	  } else {
 	    return false;
@@ -136,7 +136,7 @@ class employee extends DatabaseObject {
 		}
 		$sql = "UPDATE ".self::$table_name." SET ";
 		$sql .= join(", ", $attribute_pairs);
-		$sql .= " WHERE id=". $database->escape_value($this->id);
+		$sql .= " WHERE Id=". $database->escape_value($this->Id);
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;
 	}
@@ -148,7 +148,7 @@ class employee extends DatabaseObject {
 		// - escape all values to prevent SQL injection
 		// - use LIMIT 1
 	  $sql = "DELETE FROM ".self::$table_name;
-	  $sql .= " WHERE id=". $database->escape_value($this->Id);
+	  $sql .= " WHERE Id=". $database->escape_value($this->Id);
 	  $sql .= " LIMIT 1";
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;

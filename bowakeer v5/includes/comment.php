@@ -1,32 +1,46 @@
 <?php
+
 // If it's going to need the database, then it's 
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class employee extends DatabaseObject {
+class Comment extends DatabaseObject {
+
+  protected static $table_name="comments";
+  protected static $db_fields=array('id', 'product_id', 'created', 'author', 'body');
+
+  public $id;
+  public $product_id;
+  public $created;
+  public $author;
+  public $body;
+
+  // "new" is a reserved word so we use "make" (or "build")
+	public static function make($photo_id, $author="Anonymous", $body="") {
+    if(!empty($photo_id) && !empty($author) && !empty($body)) {
+		$comment = new Comment();
+	    $comment->product_id = (int)$photo_id;
+	    $comment->created = strftime("%Y-%m-%d %H:%M:%S", time());
+	    $comment->author = $author;
+	    $comment->body = $body;
+	    return $comment;
+		} else {
+			return false;
+		}
+	}
 	
-	protected static $table_name="employee";
-    
-	protected static $db_fields = array('id' , 'name',	'phone', 'address', 'qualifications', 'date_of_birth', 'next_of_kin', 'next_of_kin_phone', 'annual_leave', 'ssid', 'driving_license', 'payroll_id', 'work_zone');
+	public static function find_comments_on($photo_id=0) {
+    global $database;
+    $sql = "SELECT * FROM " . self::$table_name;
+    $sql .= " WHERE product_id=" .$database->escape_value($photo_id);
+    $sql .= " ORDER BY created ASC";
+    return self::find_by_sql($sql);
+	}
 	
-	public $id;
-    public $name;
-	public $phone;
-	public $address;
-	public $qualifications;
-    public $date_of_birth;
-    public $next_of_kin;
-    public $next_of_kin_phone;
-    public $annual_leave;
-    public $ssid;
-	public $driving_license;
-    public $payroll_id;
-    public $work_zone;
-    
 	// Common Database Methods
 	public static function find_all() {
 		return self::find_by_sql("SELECT * FROM ".self::$table_name);
-  }
+	}
   
   public static function find_by_id($id=0) {
     $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE id={$id} LIMIT 1");
@@ -56,9 +70,9 @@ class employee extends DatabaseObject {
     $object = new self;
 		// Simple, long-form approach:
 		// $object->id 				= $record['id'];
-		// $object->date 	= $record['date'];
-		// $object->status 	= $record['status'];
-		// $object->customer_id = $record['customer_id'];
+		// $object->username 	= $record['username'];
+		// $object->password 	= $record['password'];
+		// $object->first_name = $record['first_name'];
 		// $object->last_name 	= $record['last_name'];
 		
 		// More dynamic, short-form approach:
@@ -148,7 +162,7 @@ class employee extends DatabaseObject {
 		// - escape all values to prevent SQL injection
 		// - use LIMIT 1
 	  $sql = "DELETE FROM ".self::$table_name;
-	  $sql .= " WHERE id=". $database->escape_value($this->Id);
+	  $sql .= " WHERE id=". $database->escape_value($this->id);
 	  $sql .= " LIMIT 1";
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;
@@ -156,7 +170,7 @@ class employee extends DatabaseObject {
 		// NB: After deleting, the instance of User still 
 		// exists, even though the database entry does not.
 		// This can be useful, as in:
-		//   echo $user->customer_id . " was deleted";
+		//   echo $user->first_name . " was deleted";
 		// but, for example, we can't call $user->update() 
 		// after calling $user->delete().
 	}

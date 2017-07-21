@@ -10,7 +10,7 @@
         redirect_to('../employees.php');
     } */
     //echo "Deleting Employer no ".$_GET['id'];
-    $sql = "DELETE FROM payroll WHERE payroll.id = {$_GET['id']}";
+    $sql = "DELETE FROM payroll WHERE payroll.Id = {$_GET['id']}";
     $database->query($sql);
     $result = ($database->affected_rows() == 1) ? true : false;
     

@@ -36,31 +36,31 @@
 		<form class="w3-container" action="actions/update/update_employee.php" method="POST">
 <?php foreach($edit_employee as $emp): ?>
         <div class="w3-section">
-          <input class="w3-input w3-border" type="hidden"  value="<?php echo $emp->id; ?>" name="id" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->name; ?>" name="name" required>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $emp->phone; ?>" name="phone" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->address; ?>" name="address" required>
-          <input class="w3-input w3-border" type="text" value="<?php echo $emp->qualifications; ?>" name="qualifications" required>
-          <input class="w3-input w3-border" type="date"  value="<?php echo $emp->date_of_birth; ?>" name="dob" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->next_of_kin; ?>" name="nok" required>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $emp->next_of_kin_phone; ?>" name="nokphone" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->annual_leave; ?>" name="al" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->ssid; ?>" name="ssid" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->driving_license; ?>" name="dl" required>
+          <input class="w3-input w3-border" type="hidden"  value="<?php echo $emp->Id; ?>" name="id" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->Name; ?>" name="name" required>
+          <input class="w3-input w3-border" type="number"  value="<?php echo $emp->Phone; ?>" name="phone" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->Address; ?>" name="address" required>
+          <input class="w3-input w3-border" type="text" value="<?php echo $emp->Qualifications; ?>" name="qualifications" required>
+          <input class="w3-input w3-border" type="date"  value="<?php echo $emp->Date_of_birth; ?>" name="dob" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->Next_of_kin; ?>" name="nok" required>
+          <input class="w3-input w3-border" type="number"  value="<?php echo $emp->Next_of_kin_phone; ?>" name="nokphone" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->Annual_leave; ?>" name="al" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->SSID; ?>" name="ssid" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->Driving_license; ?>" name="dl" required>
           <select class="w3-select w3-border" name="pid">
           <?php
-                   $sql = "SELECT id FROM payroll";
+                   $sql = "SELECT Id FROM payroll";
                    $result = payroll::find_by_sql($sql);
                    foreach($result as $op){
-                    $option = "<option value=\"{$op->id}\"" ;
-                     if($op->id==$emp->payroll_id){
+                    $option = "<option value=\"{$op->Id}\"" ;
+                     if($op->Id==$emp->Payroll_id){
                        $option .= " selected ";
                      }
-                     $option.= "> {$op->id}</option>";
+                     $option.= "> {$op->Id}</option>";
                      echo $option;
                    }
                 ?></select>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->work_zone; ?>" name="workz" required>
+          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->Work_zone; ?>" name="workz" required>
         </div>
 <?php endforeach; ?>   
 

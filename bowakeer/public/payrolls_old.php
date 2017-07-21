@@ -23,8 +23,9 @@
 	$sql .= "LIMIT {$per_page} ";
 	$sql .= "OFFSET {$pagination->offset()}";
 	$payrolls = payroll::find_by_sql($sql);
-    $sql_all = "SELECT * FROM payroll ";
-    $all_payrolls = payroll::find_by_sql($sql_all);;
+    
+    $sql_all = "SELECT * FROM payroll";
+    $all_payrolls = payroll::find_by_sql($sql_all);
 	
 	// Need to add ?page=$page to all links we want to 
 	// maintain the current page (or store $page in $session)
@@ -56,7 +57,7 @@
 
     
     <div class="w3-row">
-    <div class="w3-col m3 ">
+    <div class="w3-col m4 ">
     
     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Add New"><i class="fa fa-plus"></i> </button>
     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Print"><i class="fa fa-print"></i> </button>
@@ -97,7 +98,7 @@
 
       <div class="w3-center  w3-teal">
       <img class="w3-center w3-padding" src="images/logo.jpg" /><br>
-      <h3>Employees</h3>
+      <h3>payrolls</h3>
       </div>
       <div class="w3-row w3-padding">
       <div id="modal-data"  class="w3-col m12" style="">
@@ -113,12 +114,12 @@
             </tr>"	
         ?>
         
-            <?php foreach($all_payrolls as $pay): ?>
+            <?php foreach($all_payrolls as $emp): ?>
             <tr>
-                <td><?php echo $pay->id; ?></td>
-                <td><?php echo $pay->start_date; ?></td>
-                <td><?php echo $pay->salary; ?></td>
-                <td><?php echo $pay->period; ?></td>
+                <td><?php echo $emp->Id; ?></td>
+                <td><?php echo $emp->Start_date; ?></td>
+                <td><?php echo $emp->Salary; ?></td>
+                <td><?php echo $emp->Period; ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -136,45 +137,33 @@
   </div>
 
     </div>
-    
-    <div class="w3-col m5">
+    <div class="w3-col m4 ">
     <div class="w3-container">
-    <form action="payrolls.php" >
-        <select class="w3-select w3-border" style="float: left; width: 60%;" name="filter">
+        <select class="w3-select w3-border" style="float: left; width: 80%;" name="option">
             <option value="" selected>Choose Filter</option>
             <option value="1">Filter 1</option>
             <option value="2">Filter 2</option>
             <option value="3">Filter 3</option>
             <option value="4">Others</option>
         </select>
-        <button href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" type="submit" title="Filter Results"><i class="fa fa-filter" alt="Filter"></i></button>
-    </form>
+        <a href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" title="Filter Results"><i class="fa fa-filter" alt="Filter"></i></a>
     </div>
     </div>
-    <div class="w3-right w3-col m4">
+    <div class="w3-right w3-col m4 ">
         <div class="w3-container">
-         <form action="payrolls.php" >
-        <select class="w3-select w3-border" style="float: left; width: 29%;" name="search_term">
-            <option value="start_date">Start Date</option>
-            <option value="salary" >Salary</option>
-            <option value="period" selected>Period</option>
-        </select>
-        
-    
-             <input list="cusom-list" type="text" class="w3-input w3-border cx-margin-right" style="float: left; width: 50%;" placeholder="Search.." title="Enter The Seach Term">
+            <input list="cusom-list" type="text" class="w3-input w3-border" style="float: left; width: 80%;" placeholder="Search.." title="Enter The Seach Term">
             <!-- We Will Fill This Datalist from database using PHP -->
             <datalist id="cusom-list">
                 <?php
-                   $sql = "SELECT period FROM payroll;";
+                   $sql = "SELECT Period FROM payroll;";
                    $result = payroll::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){
-                    echo "<option value=\"{$op->period}\">" ;
+                    echo "<option value=\"{$op->Period}\">" ;
                    }
                 ?>
             </datalist>
-            <button href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" type="submit" title="Search"><i class="fa fa-search" alt="Search"></i></button>
-            </form>
+            <a href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" title="Search"><i class="fa fa-search"></i></a>
         </div>
     </div>
     </div>
@@ -182,7 +171,7 @@
 
 
     <div class="w3-row">
-    <div class="w3-col m12" style="">
+    <div id="pdf-print"  class="w3-col m12" style="">
         <div id="table-data-view" class="data-view" style="overflow-x:auto; ">
           <?php
             echo " <table>            
@@ -195,16 +184,16 @@
             </tr>"	
         ?>
         
-            <?php foreach($payrolls as $pay): ?>
+            <?php foreach($payrolls as $emp): ?>
             <tr>
-                <td><?php echo $pay->id; ?></td>
-                <td><?php echo $pay->start_date; ?></td>
-                <td><?php echo $pay->salary; ?></td>
-                <td><?php echo $pay->period; ?></td>
+                <td><?php echo $emp->Id; ?></td>
+                <td><?php echo $emp->Start_date; ?></td>
+                <td><?php echo $emp->Salary; ?></td>
+                <td><?php echo $emp->Period; ?></td>
                 <td class="w3-center  w3-right">
-                <a href="edit_payroll.php?id=<?php echo $pay->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
-                <a href="actions/delete/delete_payroll.php?id=<?php echo $pay->id?>" class="w3-button w3-button-small w3-red" title="Delete"><i class="fa fa-trash"></i></a>
-                <a href="actions/print/print_payroll.php?id=<?php echo $pay->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+                <a href="actions/edit/edit_payroll.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
+                <a href="actions/delete/delete_payroll.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-red" title="Delete"><i class="fa fa-trash"></i></a>
+                <a href="actions/print/print_payroll.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
             </tr>
             <?php endforeach; ?>
         </table>

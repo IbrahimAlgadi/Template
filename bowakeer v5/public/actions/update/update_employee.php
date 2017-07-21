@@ -12,19 +12,19 @@
         var_dump($_POST);
         echo "</pre>";*/
         
-        $Emp->id = (int)$_POST['id'];
-        $Emp->name = $_POST['name'];
-        $Emp->phone = (int)$_POST['phone'];
-        $Emp->address = $_POST['address'];
-        $Emp->qualifications = $_POST['qualifications'];
-        $Emp->date_of_birth = $_POST['dob'];
-        $Emp->next_of_kin = $_POST['nok'];
-        $Emp->next_of_kin_phone = (int)$_POST['nokphone'];
-        $Emp->annual_leave = $_POST['al'];
-        $Emp->ssid = $_POST['ssid'];
-        $Emp->driving_license = $_POST['dl'];
-        $Emp->payroll_id = $_POST['pid'];
-        $Emp->work_zone = $_POST['workz'];
+        $Emp->Id = (int)$_POST['id'];
+        $Emp->Name = $_POST['name'];
+        $Emp->Phone = (int)$_POST['phone'];
+        $Emp->Address = $_POST['address'];
+        $Emp->Qualifications = $_POST['qualifications'];
+        $Emp->Date_of_birth = $_POST['dob'];
+        $Emp->Next_of_kin = $_POST['nok'];
+        $Emp->Next_of_kin_phone = (int)$_POST['nokphone'];
+        $Emp->Annual_leave = $_POST['al'];
+        $Emp->SSID = $_POST['ssid'];
+        $Emp->Driving_license = $_POST['dl'];
+        $Emp->Payroll_id = $_POST['pid'];
+        $Emp->Work_zone = $_POST['workz'];
         
         /*
         echo "<pre>";
@@ -35,7 +35,7 @@
             echo "<script>alert('Done')</script>";
             echo redirect_to("../../employees.php");
         }else{ 
-            echo "<script>alert('Unable to update employee')</script>";
+            echo "<script>alert('Error')</script>";
             //require_once("../../error.php");
             
             }

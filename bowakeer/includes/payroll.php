@@ -7,12 +7,12 @@ class payroll extends DatabaseObject {
 	
 	protected static $table_name="payroll";
     
-	protected static $db_fields = array('Id', 'Start_date', 'Salary', 'Period');
+	protected static $db_fields = array('id', 'start_date', 'salary', 'period');
 	
-	public $Id;
-    public $Start_date;
-	public $Salary;
-	public $Period;
+	public $id;
+    public $start_date;
+	public $salary;
+	public $period;
     
 	// Common Database Methods
 	public static function find_all() {
@@ -20,7 +20,7 @@ class payroll extends DatabaseObject {
   }
   
   public static function find_by_id($id=0) {
-    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE Id={$Id} LIMIT 1");
+    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE Id={$id} LIMIT 1");
 		return !empty($result_array) ? array_shift($result_array) : false;
   }
   
@@ -127,7 +127,7 @@ class payroll extends DatabaseObject {
 		}
 		$sql = "UPDATE ".self::$table_name." SET ";
 		$sql .= join(", ", $attribute_pairs);
-		$sql .= " WHERE Id=". $database->escape_value($this->id);
+		$sql .= " WHERE id=". $database->escape_value($this->id);
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;
 	}
@@ -139,7 +139,7 @@ class payroll extends DatabaseObject {
 		// - escape all values to prevent SQL injection
 		// - use LIMIT 1
 	  $sql = "DELETE FROM ".self::$table_name;
-	  $sql .= " WHERE Id=". $database->escape_value($this->id);
+	  $sql .= " WHERE id=". $database->escape_value($this->id);
 	  $sql .= " LIMIT 1";
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;

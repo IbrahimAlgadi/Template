@@ -10,9 +10,9 @@
         var_dump($_POST);
         echo "</pre>";
         */
-        $pay->Start_date = $_POST['sdate'];
-        $pay->Salary = (int)$_POST['salary'];
-        $pay->Period = $_POST['period'];
+        $pay->start_date = $_POST['sdate'];
+        $pay->salary = (int)$_POST['salary'];
+        $pay->period = $_POST['period'];
         //echo "<br />";
         //echo "<pre>";
         //var_dump($pay);

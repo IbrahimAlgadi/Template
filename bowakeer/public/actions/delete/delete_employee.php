@@ -10,7 +10,7 @@
         redirect_to('../employees.php');
     } */
     echo "Deleting Employer no ".$_GET['id'];
-    $sql = "DELETE FROM employee WHERE employee.Id = {$_GET['id']}";
+    $sql = "DELETE FROM employee WHERE employee.id = {$_GET['id']}";
     $database->query($sql);
     $result = ($database->affected_rows() == 1) ? true : false;
     

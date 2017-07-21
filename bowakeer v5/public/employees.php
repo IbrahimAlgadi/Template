@@ -1,6 +1,4 @@
 <?php require_once("../includes/initialize.php"); ?>
-<!--RFC : Only Change the class-->
-
 <?php
 
 	// 1. the current page number ($current_page)
@@ -70,7 +68,6 @@
       <h3>Add</h3>
       </div>
 
-<!--RFC: Only Change the text and create the employee.php and put it inside the actions -->
       <form class="w3-container" action="actions/add/employee.php" method="POST">
         <div class="w3-section">
           <input class="w3-input w3-border" type="text" placeholder="Name" name="name" required>
@@ -84,13 +81,11 @@
           <input class="w3-input w3-border" type="text" placeholder="SSID" name="ssid" required>
           <input class="w3-input w3-border" type="text" placeholder="Driving License" name="dl" required>
           <select class="w3-select w3-border" name="pid">
-          <!--RFC: Here Change the id and the table name to corrospond to the class you chosed -->
           <?php
-                   $sql = "SELECT id FROM payroll";
+                   $sql = "SELECT Id FROM payroll";
                    $result = payroll::find_by_sql($sql);
                    foreach($result as $op){
-                    //change the $op -> to what you selected
-                    $option = "<option value=\"{$op->id}\"> {$op->id}</option>";
+                    $option = "<option value=\"{$op->Id}\"> {$op->Id}</option>";
                      echo $option;
                    }
                 ?></select>
@@ -105,7 +100,6 @@
         </div>
         <div class="w3-col m1">&nbsp;</div>
         <div class="w3-col m7">
-        <!--RFC: This button submits to employee.php -->
         <button class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" name="submit" value="submit">Save <i class="fa fa-floppy-o"></i></button>
         </div>
         </div>
@@ -125,7 +119,7 @@
       <div class="w3-row w3-padding">
       <div id="modal-data"  class="w3-col m12" style="">
         <div id="table-modal-view" class="data-view" style="overflow-x:auto; ">
-        <!--RFC: This is the table that we show in the main page, it grabs the data and use it as pages -->
+        
           <?php
             echo " <table class=\"w3-dash\">            
             <tr class=\"w3-teal\">
@@ -138,16 +132,16 @@
               <th>Work zone</th>
             </tr>"	
         ?>
-        <!--RFC: This Foreach fill tha table with the graped data -->
+        
             <?php foreach($all_employees as $emp): ?>
             <tr>
-                <td><?php echo $emp->id; ?></td>
-                <td><?php echo $emp->name; ?></td>
-                <td><?php echo $emp->phone; ?></td>
-                <td><?php echo $emp->address; ?></td>
-                <td><?php echo $emp->ssid; ?></td>
-                <td><?php echo $emp->payroll_id; ?></td>
-                <td><?php echo $emp->work_zone; ?></td>
+                <td><?php echo $emp->Id; ?></td>
+                <td><?php echo $emp->Name; ?></td>
+                <td><?php echo $emp->Phone; ?></td>
+                <td><?php echo $emp->Address; ?></td>
+                <td><?php echo $emp->SSID; ?></td>
+                <td><?php echo $emp->Payroll_id; ?></td>
+                <td><?php echo $emp->Work_zone; ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -157,7 +151,6 @@
 
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
-        <!--RFC: This button is used to print the resulted table -->
         <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
         </div>
       </div>
@@ -177,7 +170,6 @@
             <option value="3">Filter 3</option>
             <option value="4">Others</option>
         </select>
-        <!--RFC: This submit button uses the form style to switch between filter and use the select name attrib -->
         <button href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" type="submit" title="Filter Results"><i class="fa fa-filter" alt="Filter"></i></button>
     </form>
     </div>
@@ -200,11 +192,11 @@
             <!-- We Will Fill This Datalist from database using PHP -->
             <datalist id="cusom-list">
                 <?php
-                   $sql = "SELECT name FROM employee;";
+                   $sql = "SELECT Name FROM employee;";
                    $result = employee::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){
-                    echo "<option value=\"{$op->name}\">" ;
+                    echo "<option value=\"{$op->Name}\">" ;
                    }
                 ?>
             </datalist>
@@ -235,17 +227,17 @@
         
             <?php foreach($employees as $emp): ?>
             <tr>
-                <td><?php echo $emp->id; ?></td>
-                <td><?php echo $emp->name; ?></td>
-                <td><?php echo $emp->phone; ?></td>
-                <td><?php echo $emp->address; ?></td>
-                <td><?php echo $emp->ssid; ?></td>
-                <td><?php echo $emp->payroll_id; ?></td>
-                <td><?php echo $emp->work_zone; ?></td>
+                <td><?php echo $emp->Id; ?></td>
+                <td><?php echo $emp->Name; ?></td>
+                <td><?php echo $emp->Phone; ?></td>
+                <td><?php echo $emp->Address; ?></td>
+                <td><?php echo $emp->SSID; ?></td>
+                <td><?php echo $emp->Payroll_id; ?></td>
+                <td><?php echo $emp->Work_zone; ?></td>
                 <td class="w3-center  w3-right">
-                <a href="edit_employee.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
-                <a href="actions/delete/delete_employee.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete employee: <?php echo $emp->name?>?')"><i class="fa fa-trash"></i></a>
-                <a href="actions/print/print_employee.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+                <a href="edit_employee.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
+                <a href="actions/delete/delete_employee.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete employee: <?php echo $emp->Name?>?')"><i class="fa fa-trash"></i></a>
+                <a href="actions/print/print_employee.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
             </tr>
             <?php endforeach; ?>
         </table>

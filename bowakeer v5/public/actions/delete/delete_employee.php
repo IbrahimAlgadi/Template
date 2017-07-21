@@ -9,8 +9,8 @@
         $session->message("The Employer could not be located.");
         redirect_to('../employees.php');
     } */
-    //echo "Deleting Employer no ".$_GET['id'];
-    $sql = "DELETE FROM payroll WHERE payroll.id = {$_GET['id']}";
+    echo "Deleting Employer no ".$_GET['id'];
+    $sql = "DELETE FROM employee WHERE employee.Id = {$_GET['id']}";
     $database->query($sql);
     $result = ($database->affected_rows() == 1) ? true : false;
     
@@ -19,9 +19,9 @@
     
     if($result){
         //echo "<script>alert(\"Deleted Successfult\")</script>";
-        redirect_to('../../payrolls.php');
+        redirect_to('../../employees.php');
     }else{
         //echo "<script>alert(\"Not Deleted\")</script>";
-        redirect_to('../../payrolls.php');
+        redirect_to('../../employees.php');
     }
 ?>
