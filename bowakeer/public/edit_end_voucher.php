@@ -38,19 +38,20 @@
 <?php foreach($edit_end_voucher as $pay): ?>
         <div class="w3-section">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $pay->id; ?>" name="id" required>
+          <select class="w3-select w3-border" name="payroll_id">
           <?php
                    $sql = "SELECT id FROM payroll";
                    $result = payroll::find_by_sql($sql);
                    foreach($result as $op){
                     $option = "<option value=\"{$op->id}\"" ;
-                     if($op->id==$emp->$pay->payroll_id){
+                     if($op->id==$pay->payroll_id){
                        $option .= " selected ";
                      }
                      $option.= "> {$op->id}</option>";
                      echo $option;
                    }
                 ?></select>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $pay->end_date; ?>" name="salary" required>
+          <input class="w3-input w3-border" type="date"  value="<?php echo $pay->end_date; ?>" name="end_date" required>
         </div>
 <?php endforeach; ?>   		
     </div>

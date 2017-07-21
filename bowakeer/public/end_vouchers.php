@@ -41,7 +41,7 @@
   <div class="w3-row">
     <div class="w3-col m12">
     <div class="w3-bar">
-   <a href="end_vouchers.php" class="w3-bar-item w3-button w3-round-medium">Home</a>
+   <a href="payrolls.php" class="w3-bar-item w3-button w3-round-medium">Home</a>
    <a href="end_vouchers.php" class="w3-bar-item w3-button w3-round-medium">End Voucher</a>
 </div> 
 </div>
@@ -68,7 +68,7 @@
 
       <form class="w3-container" action="actions/add/end_voucher.php" method="POST">
         <div class="w3-section">
-          <select class="w3-select w3-border" name="pid">
+          <select class="w3-select w3-border" name="payroll_id">
           <!--RFC: Here Change the id and the table name to corrospond to the class you chosed -->
           <?php
                    $sql = "SELECT id FROM payroll";
@@ -104,7 +104,7 @@
 
       <div class="w3-center  w3-teal">
       <img class="w3-center w3-padding" src="images/logo.jpg" /><br>
-      <h3>Employees</h3>
+      <h3>Vouchers</h3>
       </div>
       <div class="w3-row w3-padding">
       <div id="modal-data"  class="w3-col m12" style="">
@@ -114,9 +114,8 @@
             echo " <table class=\"w3-dash\">            
             <tr class=\"w3-teal\">
               <th>Id</th>
-              <th>Start Date</th>
-              <th>Salary</th>
-              <th>Period</th>
+              <th>Payroll ID</th>
+              <th>End Date</th>
             </tr>"	
         ?>
         

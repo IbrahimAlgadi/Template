@@ -8,7 +8,8 @@
 defined('DS') ? null : define('DS', '/');
 
 defined('SITE_ROOT') ? null : 
-	define('SITE_ROOT', DS.'xampp2'.DS.'htdocs'.DS.'bowakeer');
+//C:\xampp2\htdocs\git\Template\bowakeer
+	define('SITE_ROOT', DS.'xampp2'.DS.'htdocs'.DS.'git'.DS.'Template'.DS.'bowakeer');
 
 defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
 

@@ -4,27 +4,22 @@
 
     if(isset($_POST['submit'])) {
         
-        $pay = new payroll();
+        $vouch = new end_voucher();
         /*
         echo "<pre>";
         var_dump($_POST);
         echo "</pre>";
         */
-        $pay->start_date = $_POST['sdate'];
-        $pay->salary = (int)$_POST['salary'];
-        $pay->period = $_POST['period'];
+        $vouch->payroll_id = $_POST['payroll_id'];
+        $vouch->end_date = $_POST['end_date'];
         //echo "<br />";
         //echo "<pre>";
-        //var_dump($pay);
+        //var_dump($vouch);
         //echo "</pre>";
-        if ($pay->create()){
-            //$message_title = "Success";
-            //$message_body = "You Have Submitted Information Successfuly";
+        if ($vouch->create()){
             //require_once("../message.php");
-            echo redirect_to("../../payrolls.php");
+            echo redirect_to("../../end_vouchers.php");
         }else{ 
-            //$message_title = "Faluire";
-            //$message_body = "There is a problem trying";
             //require_once("../../error.php");
             echo "<h1>Failure</h1>";
             }
