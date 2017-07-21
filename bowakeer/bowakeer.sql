@@ -27,12 +27,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `accounts_payable` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Cheque_number` int(11) NOT NULL,
-  `Cheque_date` date NOT NULL,
-  `Bank_id` int(11) NOT NULL,
-  `Amount` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `end_date` date NOT NULL,
+  `cheque_number` int(11) NOT NULL,
+  `cheque_date` date NOT NULL,
+  `bank_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -42,12 +43,13 @@ CREATE TABLE `accounts_payable` (
 --
 
 CREATE TABLE `account_reciveable` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Cheque_number` int(11) NOT NULL,
-  `Cheque_date` date NOT NULL,
-  `Bank_id` int(11) NOT NULL,
-  `Amount` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `end_date` date NOT NULL,
+  `cheque_number` int(11) NOT NULL,
+  `cheque_date` date NOT NULL,
+  `bank_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,10 +59,10 @@ CREATE TABLE `account_reciveable` (
 --
 
 CREATE TABLE `allowences` (
-  `Id` int(11) NOT NULL,
-  `Emp_id` int(11) DEFAULT NULL,
-  `Allow_date` text,
-  `Amout` text
+  `id` int(11) NOT NULL,
+  `emp_id` int(11) DEFAULT NULL,
+  `allow_date` date NOT NULL,
+  `amout` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -70,11 +72,11 @@ CREATE TABLE `allowences` (
 --
 
 CREATE TABLE `appointments` (
-  `Id` int(11) NOT NULL,
-  `Patient_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
   `doctor_id` int(11) NOT NULL,
-  `Date` date NOT NULL,
-  `Type` varchar(10) DEFAULT NULL
+  `apoint_date` date NOT NULL,
+  `apoint_type` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -84,13 +86,14 @@ CREATE TABLE `appointments` (
 --
 
 CREATE TABLE `automotive` (
-  `Id` int(11) NOT NULL,
-  `Label` text,
-  `Modul` int(11) DEFAULT NULL,
-  `Insurance` text,
-  `Period` text,
-  `Expiary_date` date DEFAULT NULL,
-  `Oil_change` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `label` text,
+  `model` text,
+  `insurance` text,
+  `period` text,
+  `expiry_date` date DEFAULT NULL,
+  `oil_change` int(11) DEFAULT NULL,
+  `license_expiry_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -100,9 +103,9 @@ CREATE TABLE `automotive` (
 --
 
 CREATE TABLE `banks` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Contact` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `contact` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -112,8 +115,8 @@ CREATE TABLE `banks` (
 --
 
 CREATE TABLE `categories` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -123,8 +126,8 @@ CREATE TABLE `categories` (
 --
 
 CREATE TABLE `company` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -134,12 +137,13 @@ CREATE TABLE `company` (
 --
 
 CREATE TABLE `contracts` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Type` int(11) NOT NULL,
-  `Period` text NOT NULL,
-  `Start_date` date NOT NULL,
-  `End_date` date NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `cont_type` int(11) NOT NULL,
+  `period` text NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `description` TEXT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -149,8 +153,8 @@ CREATE TABLE `contracts` (
 --
 
 CREATE TABLE `departments` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -160,15 +164,15 @@ CREATE TABLE `departments` (
 --
 
 CREATE TABLE `doctors` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Age` int(11) NOT NULL,
-  `Gender` varchar(6) NOT NULL,
-  `Specialization` varchar(30) DEFAULT NULL,
-  `Department_id` int(11) NOT NULL,
-  `Marital_staues` varchar(30) DEFAULT NULL,
-  `Phone` int(11) NOT NULL,
-  `Address` varchar(30) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `age` int(11) NOT NULL,
+  `gender` varchar(6) NOT NULL,
+  `specialization` varchar(30) DEFAULT NULL,
+  `department_id` int(11) NOT NULL,
+  `marital_status` varchar(30) DEFAULT NULL,
+  `phone` int(11) NOT NULL,
+  `address` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -178,17 +182,19 @@ CREATE TABLE `doctors` (
 --
 
 CREATE TABLE `employee` (
-  `Id` int(11) NOT NULL,
-  `Phone` int(11) DEFAULT NULL,
-  `Address` varchar(255) DEFAULT NULL,
-  `Qualifications` text,
-  `Date_of_birth` date DEFAULT NULL,
-  `Next_of_kin` varchar(255) DEFAULT NULL,
-  `Annual_leave` int(11) DEFAULT NULL,
-  `SSID` text,
-  `Driving_license` text,
-  `Payroll_id` int(11) DEFAULT NULL,
-  `Work_zone` text
+  `id` int(11) NOT NULL,
+  `name` varchar(25) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `qualifications` text,
+  `date_of_birth` date DEFAULT NULL,
+  `next_of_kin` varchar(25) DEFAULT NULL,
+  `next_of_kin_phone` int(11) DEFAULT NULL,
+  `annual_leave` int(11) DEFAULT NULL,
+  `ssid` text,
+  `driving_license` text,
+  `payroll_id` int(11) DEFAULT NULL,
+  `work_zone` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -198,11 +204,11 @@ CREATE TABLE `employee` (
 --
 
 CREATE TABLE `emp_car` (
-  `Id` int(11) NOT NULL,
-  `Emp_id` int(11) DEFAULT NULL,
-  `Auto_id` int(11) DEFAULT NULL,
-  `Start_date` date DEFAULT NULL,
-  `End_date` date DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `emp_id` int(11) DEFAULT NULL,
+  `auto_id` int(11) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -212,9 +218,9 @@ CREATE TABLE `emp_car` (
 --
 
 CREATE TABLE `end_vouchers` (
-  `Id` int(11) NOT NULL,
-  `Payroll_id` int(11) DEFAULT NULL,
-  `End_date` date DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `payroll_id` int(11) DEFAULT NULL,
+  `end_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -224,10 +230,11 @@ CREATE TABLE `end_vouchers` (
 --
 
 CREATE TABLE `expenses` (
-  `Id` int(11) NOT NULL,
-  `Date` date NOT NULL,
-  `Amount` int(11) NOT NULL,
-  `Description` text NOT NULL
+  `id` int(11) NOT NULL,
+  `exp_date` date NOT NULL,
+  `amount` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `cat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -237,8 +244,8 @@ CREATE TABLE `expenses` (
 --
 
 CREATE TABLE `expenses_category` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -248,9 +255,9 @@ CREATE TABLE `expenses_category` (
 --
 
 CREATE TABLE `exports` (
-  `Id` int(11) NOT NULL,
-  `Emp_id` int(11) NOT NULL,
-  `Date` date NOT NULL
+  `id` int(11) NOT NULL,
+  `emp_id` int(11) NOT NULL,
+  `export_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -260,9 +267,9 @@ CREATE TABLE `exports` (
 --
 
 CREATE TABLE `export_details` (
-  `Id` int(11) NOT NULL,
-  `Product_id` int(11) NOT NULL,
-  `Quantity` text NOT NULL
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -272,10 +279,10 @@ CREATE TABLE `export_details` (
 --
 
 CREATE TABLE `import` (
-  `Id` int(11) NOT NULL,
-  `Company_id` int(11) NOT NULL,
-  `Date` date NOT NULL,
-  `Payment_type` text NOT NULL
+  `id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `import_date` date NOT NULL,
+  `payment_type` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -285,11 +292,11 @@ CREATE TABLE `import` (
 --
 
 CREATE TABLE `import_details` (
-  `Id` int(11) NOT NULL,
-  `Product_id` int(11) NOT NULL,
-  `Batch_number` int(11) NOT NULL,
-  `Expiry_date` date NOT NULL,
-  `Quantity` text NOT NULL
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `batch_number` int(11) NOT NULL,
+  `expiry_date` date NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -299,11 +306,11 @@ CREATE TABLE `import_details` (
 --
 
 CREATE TABLE `income` (
-  `Id` int(11) NOT NULL,
-  `Date` date NOT NULL,
-  `Amount` int(11) NOT NULL,
-  `Description` text NOT NULL,
-  `Category_id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `income_date` date NOT NULL,
+  `amount` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `cat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -313,8 +320,8 @@ CREATE TABLE `income` (
 --
 
 CREATE TABLE `income_category` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -324,8 +331,8 @@ CREATE TABLE `income_category` (
 --
 
 CREATE TABLE `laboratory` (
-  `Id` int(11) NOT NULL,
-  `Test` varchar(25) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `test` varchar(25) DEFAULT NULL,
   `reference_range` text NOT NULL,
   `unit` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -337,8 +344,8 @@ CREATE TABLE `laboratory` (
 --
 
 CREATE TABLE `orders` (
-  `Id` int(11) NOT NULL,
-  `Date` date DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `order_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -348,9 +355,9 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `order_details` (
-  `Id` int(11) NOT NULL,
-  `Product_id` int(11) NOT NULL,
-  `Quantity` text NOT NULL
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -360,13 +367,13 @@ CREATE TABLE `order_details` (
 --
 
 CREATE TABLE `patients` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Age` int(11) NOT NULL,
-  `Gender` varchar(6) NOT NULL,
-  `Occupation` varchar(20) DEFAULT NULL,
-  `Address` varchar(30) DEFAULT NULL,
-  `Phone` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `age` int(11) NOT NULL,
+  `gender` varchar(6) NOT NULL,
+  `occupation` varchar(20) DEFAULT NULL,
+  `address` varchar(30) DEFAULT NULL,
+  `phone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -376,10 +383,10 @@ CREATE TABLE `patients` (
 --
 
 CREATE TABLE `payroll` (
-  `Id` int(11) NOT NULL,
-  `Start_date` date DEFAULT NULL,
-  `Salary` int(11) DEFAULT NULL,
-  `Period` text
+  `id` int(11) NOT NULL,
+  `start_date` date DEFAULT NULL,
+  `salary` int(11) DEFAULT NULL,
+  `period` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -389,11 +396,11 @@ CREATE TABLE `payroll` (
 --
 
 CREATE TABLE `products` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(25) NOT NULL,
-  `Cat_id` int(11) NOT NULL,
-  `Unit_price` int(11) NOT NULL,
-  `Sell_price` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `unit_price` int(11) NOT NULL,
+  `sell_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -404,185 +411,185 @@ CREATE TABLE `products` (
 -- Indexes for table `accounts_payable`
 --
 ALTER TABLE `accounts_payable`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Bank_id` (`Bank_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `bank_id` (`bank_id`);
 
 --
 -- Indexes for table `account_reciveable`
 --
 ALTER TABLE `account_reciveable`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Bank_id` (`Bank_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `bank_id` (`bank_id`);
 
 --
 -- Indexes for table `allowences`
 --
 ALTER TABLE `allowences`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Emp_id` (`Emp_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `emp_id` (`emp_id`);
 
 --
 -- Indexes for table `appointments`
 --
 ALTER TABLE `appointments`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Patient_id` (`Patient_id`),
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `patient_id` (`patient_id`),
   ADD KEY `doctor_id` (`doctor_id`);
 
 --
 -- Indexes for table `automotive`
 --
 ALTER TABLE `automotive`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `banks`
 --
 ALTER TABLE `banks`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contracts`
 --
 ALTER TABLE `contracts`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `departments`
 --
 ALTER TABLE `departments`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `doctors`
 --
 ALTER TABLE `doctors`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Department_id` (`Department_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `department_id` (`department_id`);
 
 --
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Payroll_id` (`Payroll_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `payroll_id` (`payroll_id`);
 
 --
 -- Indexes for table `emp_car`
 --
 ALTER TABLE `emp_car`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Emp_id` (`Emp_id`),
-  ADD KEY `Auto_id` (`Auto_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `emp_id` (`emp_id`),
+  ADD KEY `auto_id` (`auto_id`);
 
 --
 -- Indexes for table `end_vouchers`
 --
 ALTER TABLE `end_vouchers`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Payroll_id` (`Payroll_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `payroll_id` (`payroll_id`);
 
 --
 -- Indexes for table `expenses`
 --
 ALTER TABLE `expenses`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `expenses_category`
 --
 ALTER TABLE `expenses_category`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `exports`
 --
 ALTER TABLE `exports`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `export_details`
 --
 ALTER TABLE `export_details`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Product_id` (`Product_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `import`
 --
 ALTER TABLE `import`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Company_id` (`Company_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `company_id` (`company_id`);
 
 --
 -- Indexes for table `import_details`
 --
 ALTER TABLE `import_details`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Product_id` (`Product_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `income`
 --
 ALTER TABLE `income`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Category_id` (`Category_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cat_id` (`cat_id`);
 
 --
 -- Indexes for table `income_category`
 --
 ALTER TABLE `income_category`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `laboratory`
 --
 ALTER TABLE `laboratory`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `order_details`
 --
 ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Product_id` (`Product_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `patients`
 --
 ALTER TABLE `patients`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `payroll`
 --
 ALTER TABLE `payroll`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Cat_id` (`Cat_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cat_id` (`cat_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -592,142 +599,142 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `accounts_payable`
 --
 ALTER TABLE `accounts_payable`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `account_reciveable`
 --
 ALTER TABLE `account_reciveable`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `allowences`
 --
 ALTER TABLE `allowences`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `automotive`
 --
 ALTER TABLE `automotive`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `banks`
 --
 ALTER TABLE `banks`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `contracts`
 --
 ALTER TABLE `contracts`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `emp_car`
 --
 ALTER TABLE `emp_car`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `end_vouchers`
 --
 ALTER TABLE `end_vouchers`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `expenses_category`
 --
 ALTER TABLE `expenses_category`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `exports`
 --
 ALTER TABLE `exports`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `export_details`
 --
 ALTER TABLE `export_details`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `import`
 --
 ALTER TABLE `import`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `import_details`
 --
 ALTER TABLE `import_details`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `income`
 --
 ALTER TABLE `income`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `income_category`
 --
 ALTER TABLE `income_category`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `laboratory`
 --
 ALTER TABLE `laboratory`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `payroll`
 --
 ALTER TABLE `payroll`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
