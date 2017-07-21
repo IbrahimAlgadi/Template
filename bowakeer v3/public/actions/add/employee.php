@@ -30,11 +30,11 @@
             $message_title = "Success";
             $message_body = "You Have Submitted Information Successfuly";
             //require_once("../message.php");
-            echo redirect_to("../../employees.php");
+            echo redirect_to("../../message.php");
         }else{ 
             $message_title = "Faluire";
             $message_body = "There is a problem trying";
-            require_once("../../error.php");
+            require_once("../../message.php");
             echo "<h1>Failure</h1>";
             }
        }else{

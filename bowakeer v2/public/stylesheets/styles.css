@@ -286,11 +286,3 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     text-decoration: underline;
     color: white;
 }
-
-.w3-dash td, .w3-dash th {
-    border: 1px solid black;
-} 
-
-.w3-dash th {
-    font-weight: bold;
-} 

@@ -12,14 +12,7 @@
 body {font-family: "Roboto", sans-serif}
 .w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
 </style>
-
-<script type="text/javascript" src="print/jspdf/libs/sprintf.js"></script>
-<script type="text/javascript" src="print/jspdf/jspdf.js"></script>
-<script type="text/javascript" src="print/jspdf/libs/base64.js"></script>
-<script type="text/javascript" src="print/jquery.js"></script>
-<script type="text/javascript" src="print/tableExport.js"></script>
-<script type="text/javascript" src="print/jquery.base64.js"></script>
-
+<script src="../javascripts/ajax.js"></script>
 <body>
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:250px;" id="mySidebar">
   

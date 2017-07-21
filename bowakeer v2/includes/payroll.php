@@ -7,13 +7,13 @@ class payroll extends DatabaseObject {
 	
 	protected static $table_name="payroll";
     
-	protected static $db_fields = array('Id', 'Start_date', 'Salary', 'Period');
+	protected static $db_fields = array('Id','Start_date','Salary','Period');
 	
 	public $Id;
     public $Start_date;
 	public $Salary;
 	public $Period;
-    
+	
 	// Common Database Methods
 	public static function find_all() {
 		return self::find_by_sql("SELECT * FROM ".self::$table_name);

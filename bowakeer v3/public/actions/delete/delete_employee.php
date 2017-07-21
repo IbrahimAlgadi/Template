@@ -19,9 +19,9 @@
     
     if($result){
         //echo "<script>alert(\"Deleted Successfult\")</script>";
-        redirect_to('../../employees.php');
+        redirect_to('../employees.php');
     }else{
         //echo "<script>alert(\"Not Deleted\")</script>";
-        redirect_to('../../employees.php');
+        redirect_to('../employees.php');
     }
 ?>

@@ -10,7 +10,7 @@
         redirect_to('../employees.php');
     } */
     echo "Deleting Employer no ".$_GET['id'];
-    $sql = "DELETE FROM employee WHERE employee.Id = {$_GET['id']}";
+    $sql = "DELETE FROM payroll WHERE payroll.Id = {$_GET['id']}";
     $database->query($sql);
     $result = ($database->affected_rows() == 1) ? true : false;
     
@@ -19,9 +19,9 @@
     
     if($result){
         //echo "<script>alert(\"Deleted Successfult\")</script>";
-        redirect_to('../../employees.php');
+        redirect_to('../../payrolls.php');
     }else{
         //echo "<script>alert(\"Not Deleted\")</script>";
-        redirect_to('../../employees.php');
+        redirect_to('../../payrolls.php');
     }
 ?>

@@ -3,16 +3,25 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class payroll extends DatabaseObject {
+class employee extends DatabaseObject {
 	
-	protected static $table_name="payroll";
+	protected static $table_name="employee";
     
-	protected static $db_fields = array('Id', 'Start_date', 'Salary', 'Period');
+	protected static $db_fields = array('Id' , 'Name',	'Phone', 'Address', 'Qualifications', 'Date_of_birth', 'Next_of_kin', 'Next_of_kin_phone', 'Annual_leave', 'SSID', 'Driving_license', 'Payroll_id', 'Work_zone');
 	
 	public $Id;
-    public $Start_date;
-	public $Salary;
-	public $Period;
+    public $Name;
+	public $Phone;
+	public $Address;
+	public $Qualifications;
+    public $Date_of_birth;
+    public $Next_of_kin;
+    public $Next_of_kin_phone;
+    public $Annual_leave;
+    public $SSID;
+	public $Driving_license;
+    public $Payroll_id;
+    public $Work_zone;
     
 	// Common Database Methods
 	public static function find_all() {

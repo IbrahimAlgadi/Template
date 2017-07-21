@@ -23,9 +23,6 @@
 	$sql .= "LIMIT {$per_page} ";
 	$sql .= "OFFSET {$pagination->offset()}";
 	$payrolls = payroll::find_by_sql($sql);
-    
-    $sql_all = "SELECT * FROM payroll";
-    $all_payrolls = payroll::find_by_sql($sql_all);
 	
 	// Need to add ?page=$page to all links we want to 
 	// maintain the current page (or store $page in $session)
@@ -62,18 +59,36 @@
     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Add New"><i class="fa fa-plus"></i> </button>
     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-teal w3-round-medium w3-medium" title="Print"><i class="fa fa-print"></i> </button>
     
+    <div class="dropdown">
+      <button class="dropbtn w3-button w3-teal w3-round-medium w3-medium"><i class="fa fa-share-square-o" style="padding:0px"></i></button>
+      <div class="dropdown-content w3-animate-zoom">
+        <a href="#"><i class="fa fa-file-pdf-o"></i> PDF</a>
+        <a href="#"><i class="fa fa-file-excel-o"></i> Excel</a>
+      </div>
+    </div>
+    
+    
     <div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:600px">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
       <div class="w3-center  w3-teal"><br>
       <h3>Add</h3>
       </div>
 
-      <form class="w3-container" action="actions/add/payroll.php" method="POST">
+      <form class="w3-container" action="add/payroll.php" method="POST">
         <div class="w3-section">
-          <input class="w3-input w3-border" type="date" placeholder="Start Date" name="sdate" required>
-          <input class="w3-input w3-border" type="number" placeholder="Salary" name="salary" required>
-          <input class="w3-input w3-border" type="text" placeholder="Period" name="period" required>
+          <input class="w3-input w3-border" type="text" placeholder="Name" name="name" required>
+          <input class="w3-input w3-border" type="number" placeholder="Phone" name="phone" required>
+          <input class="w3-input w3-border" type="text" placeholder="Address" name="address" required>
+          <input class="w3-input w3-border" placeholder="Qualifications" name="qualifications" required>
+          <input class="w3-input w3-border" type="date" placeholder="Date of birth" name="dob" required>
+          <input class="w3-input w3-border" type="text" placeholder="Next of Kin" name="nok" required>
+          <input class="w3-input w3-border" type="number" placeholder=" Next of Kin Phone" name="nokphone" required>
+          <input class="w3-input w3-border" type="text" placeholder="Annual Leave" name="al" required>
+          <input class="w3-input w3-border" type="text" placeholder="SSID" name="ssid" required>
+          <input class="w3-input w3-border" type="text" placeholder="Driving License" name="dl" required>
+          <input class="w3-input w3-border" type="number" placeholder="Payroll id" name="pid" required>
+          <input class="w3-input w3-border" type="text" placeholder="Work Zone" name="workz" required>
         </div>
       
 
@@ -94,48 +109,35 @@
   </div>
   
   <div id="id02" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom" style="max-width:100%">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
-      <div class="w3-center  w3-teal">
-      <img class="w3-center w3-padding" src="images/logo.jpg" /><br>
-      <h3>payrolls</h3>
+      <div class="w3-center  w3-teal"><br>
+      <h3>Print</h3>
       </div>
-      <div class="w3-row w3-padding">
-      <div id="modal-data"  class="w3-col m12" style="">
-        <div id="table-modal-view" class="data-view" style="overflow-x:auto; ">
-        
-          <?php
-            echo " <table class=\"w3-dash\">            
-            <tr class=\"w3-teal\">
-              <th>Id</th>
-              <th>Start Date</th>
-              <th>Salary</th>
-              <th>Period</th>
-            </tr>"	
-        ?>
-        
-            <?php foreach($all_payrolls as $emp): ?>
-            <tr>
-                <td><?php echo $emp->Id; ?></td>
-                <td><?php echo $emp->Start_date; ?></td>
-                <td><?php echo $emp->Salary; ?></td>
-                <td><?php echo $emp->Period; ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        </div>
-    </div>
-    </div>
 
-      <div class="w3-container w3-padding-16 w3-light-grey">
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter First Name" name="usrname" required>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Last Name" name="psw" required>
+          
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
         <div class="w3-row">
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <div class="w3-col m4">
+        <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-red w3-button w3-large w3-round-medium w3-block w3-section w3-padding ">Cancel <i class="fa fa-close"></i></button>
+        </div>
+        <div class="w3-col m1">&nbsp;</div>
+        <div class="w3-col m7">
+        <button class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit">Print <i class="fa fa-print"></i></button>
+        </div>
         </div>
       </div>
 
     </div>
   </div>
-
+  
     </div>
     <div class="w3-col m4 ">
     <div class="w3-container">
@@ -155,13 +157,24 @@
             <!-- We Will Fill This Datalist from database using PHP -->
             <datalist id="cusom-list">
                 <?php
-                   $sql = "SELECT Period FROM payroll;";
+                   $sql = "SELECT Id FROM payroll;";
                    $result = payroll::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){
-                    echo "<option value=\"{$op->Period}\">" ;
+                    echo "<option value=\"{$op->Id}\">" ;
                    }
                 ?>
+                <!--
+<option value="Ibrahim">
+                <option value="Muhammed">
+                <option value="Missi">
+                <option value="Malik">
+                <option value="Khalid">
+                <option value="Mudather">
+                <option value="Ice">
+                <option value="Inesta">
+                <option value="Homeless">
+-->
             </datalist>
             <a href="#" class="w3-button w3-teal w3-round-medium cx-margin-right" title="Search"><i class="fa fa-search"></i></a>
         </div>
@@ -171,32 +184,29 @@
 
 
     <div class="w3-row">
-    <div id="pdf-print"  class="w3-col m12" style="">
-        <div id="table-data-view" class="data-view" style="overflow-x:auto; ">
-          <?php
-            echo " <table>            
-            <tr class=\"w3-teal\">
+    <div  class="w3-col m12" style="">
+        <div class="data-view" style="overflow-x:auto; ">
+          <table>
+            <tr class="w3-teal">
               <th>Id</th>
               <th>Start Date</th>
               <th>Salary</th>
               <th>Period</th>
-              <th class=\"w3-center w3-right\"></th>
-            </tr>"	
-        ?>
-        
-            <?php foreach($payrolls as $emp): ?>
-            <tr>
-                <td><?php echo $emp->Id; ?></td>
-                <td><?php echo $emp->Start_date; ?></td>
-                <td><?php echo $emp->Salary; ?></td>
-                <td><?php echo $emp->Period; ?></td>
-                <td class="w3-center  w3-right">
-                <a href="actions/edit/edit_payroll.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
-                <a href="actions/delete/delete_payroll.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-red" title="Delete"><i class="fa fa-trash"></i></a>
-                <a href="actions/print/print_payroll.php?id=<?php echo $emp->Id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+              <th class="w3-center w3-right"></th>
             </tr>
-            <?php endforeach; ?>
-        </table>
+            
+            
+            <?php foreach($payrolls as $payr): ?>
+  <tr><td><?php echo $payr->Id; ?></td>
+  <td><?php echo $payr->Start_date; ?></td>
+  <td><?php echo $payr->Salary; ?></td>
+  <td><?php echo $payr->Period; ?></td>
+  <td class="w3-center  w3-right"><a href="edit/edit_payroll.php?id=<?php echo $payr->Id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a> <a href="delete/delete_payroll.php?id=<?php echo $payr->Id?>" class="w3-button w3-button-small w3-red" title="Delete"><i class="fa fa-trash"></i></a> <a href="print/print_payroll.php?id=<?php echo $payr->Id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+  </tr>
+			
+<?php endforeach; ?>
+            
+          </table>
         </div>
     </div>
     
@@ -231,7 +241,9 @@
 	}
 
 ?>
-        </div>
+
+
+                  </div>
     </div>
     </div>
     
