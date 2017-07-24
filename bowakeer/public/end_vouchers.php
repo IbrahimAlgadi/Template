@@ -205,7 +205,7 @@
                 <td><?php echo $vouch->end_date; ?></td>
                 <td class="w3-center  w3-right">
                 <a href="edit_end_voucher.php?id=<?php echo $vouch->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
-                <a href="actions/delete/delete_end_voucher.php?id=<?php echo $vouch->id?>" class="w3-button w3-button-small w3-red" title="Delete"><i class="fa fa-trash"></i></a>
+                <a href="actions/delete/delete_end_voucher.php?id=<?php echo $vouch->id?>" class="w3-button w3-button-small w3-red" onclick="return confirm('Are you sure you want to delete voucher No: <?php echo $vouch->id?>?')" title="Delete"><i class="fa fa-trash"></i></a>
                 <a href="actions/print/print_end_voucher.php?id=<?php echo $vouch->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
             </tr>
             <?php endforeach; ?>

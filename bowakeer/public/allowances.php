@@ -45,7 +45,7 @@
     <div class="w3-bar">
    <a href="employees.php" class="w3-bar-item w3-button w3-round-medium">Home</a>
    <a href="allowances.php" class="w3-bar-item w3-button w3-round-medium">Allowances</a>
-   <a href="allowance_cars.php" class="w3-bar-item w3-button w3-round-medium">Employee Cars</a>
+   <a href="employee_cars.php" class="w3-bar-item w3-button w3-round-medium">Employee Cars</a>
    <a href="automotives.php" class="w3-bar-item w3-button w3-round-medium">Automotives</a>
 </div> 
 </div>
@@ -225,7 +225,7 @@
                 <!--RFC: The edit button send the id to the edit_allowance.php -->
                 <a href="edit_allowance.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
                 <!--RFC: The delete button submit the id to the delete_allowance.php -->
-                <a href="actions/delete/delete_allowance.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete allowance: <?php echo $emp->name?>?')"><i class="fa fa-trash"></i></a>
+                <a href="actions/delete/delete_allowance.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete allowance: <?php echo $emp->amount?>?')"><i class="fa fa-trash"></i></a>
                 <!--RFC: The print function grabs the data and open anothe page print_emplpyee.php from it you can print the table -->
                 <a href="actions/print/print_allowance.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
             </tr>

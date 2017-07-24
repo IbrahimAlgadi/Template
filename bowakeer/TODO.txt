@@ -1,3 +1,5 @@
 1 - for deleting a record in a specific table connected to the specific forign id that is 
 shared amoung maney reccords then if you want to delete it then you have to delte the tree
 relation.
+2 - changed in the database the name of emp_car to employee_cars
+3 - changed the database name automotive to automotives
