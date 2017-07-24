@@ -106,7 +106,7 @@
 
       <div class="w3-center  w3-teal">
       <img class="w3-center w3-padding" src="images/logo.jpg" /><br>
-      <h3>Employees</h3>
+      <h3>Automotives</h3>
       </div>
       <div class="w3-row w3-padding">
       <div id="modal-data"  class="w3-col m12" style="">
@@ -146,7 +146,7 @@
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
         <!--RFC: This button is used to print the resulted table -->
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print <i class="fa fa-print" ></i></button>
         </div>
       </div>
 
