@@ -3,9 +3,9 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class allowance extends DatabaseObject {
+class contract extends DatabaseObject {
 	
-	protected static $table_name="allowances";
+	protected static $table_name="contracts";
     
 	protected static $db_fields = array('id', 'name', 'cont_type', 'period', 'start_date', 'end_date', 'description');
 	
