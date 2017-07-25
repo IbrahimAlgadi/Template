@@ -3,3 +3,6 @@ shared amoung maney reccords then if you want to delete it then you have to delt
 relation.
 2 - changed in the database the name of emp_car to employee_cars
 3 - changed the database name automotive to automotives
+5 - changed the database name accounts_payable to accounts_payables
+4 - changed the database name account_reciveable to accounts_reciveables
+5 - changed the database name income to incomes
