@@ -3,19 +3,14 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class contract extends DatabaseObject {
+class category extends DatabaseObject {
 	
-	protected static $table_name="contracts";
+	protected static $table_name="categories";
     
-	protected static $db_fields = array('id', 'name', 'contract_type', 'period', 'start_date', 'end_date', 'description');
+	protected static $db_fields = array('id' , 'name');
 	
 	public $id;
     public $name;
-	public $contract_type;
-	public $period;
-    public $start_date;
-    public $end_date;
-    public $description;
     
 	// Common Database Methods
 	public static function find_all() {
@@ -23,7 +18,7 @@ class contract extends DatabaseObject {
   }
   
   public static function find_by_id($id=0) {
-    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE Id={$id} LIMIT 1");
+    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE id={$id} LIMIT 1");
 		return !empty($result_array) ? array_shift($result_array) : false;
   }
   
@@ -142,7 +137,7 @@ class contract extends DatabaseObject {
 		// - escape all values to prevent SQL injection
 		// - use LIMIT 1
 	  $sql = "DELETE FROM ".self::$table_name;
-	  $sql .= " WHERE id=". $database->escape_value($this->id);
+	  $sql .= " WHERE id=". $database->escape_value($this->Id);
 	  $sql .= " LIMIT 1";
 	  $database->query($sql);
 	  return ($database->affected_rows() == 1) ? true : false;

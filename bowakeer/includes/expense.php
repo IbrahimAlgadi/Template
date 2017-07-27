@@ -7,10 +7,10 @@ class expense extends DatabaseObject {
 	
 	protected static $table_name="expenses";
     
-	protected static $db_fields = array('id', 'exp_date', 'amount', 'description', 'cat_id');
+	protected static $db_fields = array('id', 'expense_date', 'amount', 'description', 'cat_id');
 	
 	public $id;
-    public $exp_date;
+    public $expense_date;
 	public $amount;
 	public $description;
     public $cat_id;

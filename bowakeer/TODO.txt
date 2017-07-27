@@ -6,3 +6,5 @@ relation.
 5 - changed the database name accounts_payable to accounts_payables
 4 - changed the database name account_reciveable to accounts_reciveables
 5 - changed the database name income to incomes
+6 - changed the database name exp_date to expense_date
+7 - changed the database name cont_type to contract_type
