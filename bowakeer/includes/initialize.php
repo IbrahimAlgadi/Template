@@ -8,7 +8,11 @@
 defined('DS') ? null : define('DS', '/');
 
 defined('SITE_ROOT') ? null : 
+<<<<<<< HEAD
 //C:\xampp2\htdocs\git\Template\bowakeer
+=======
+//C:\xampp\htdocs\git\Template\bowakeer
+>>>>>>> master
 	define('SITE_ROOT', DS.'xampp'.DS.'htdocs'.DS.'git'.DS.'Template'.DS.'bowakeer');
 
 defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
@@ -37,7 +41,12 @@ require_once(LIB_PATH.DS.'income.php');
 require_once(LIB_PATH.DS.'expense.php');
 require_once(LIB_PATH.DS.'category.php');
 require_once(LIB_PATH.DS.'comment.php');
+<<<<<<< HEAD
 require_once(LIB_PATH.DS.'order.php');
 require_once(LIB_PATH.DS.'order_details.php');
+=======
+require_once(LIB_PATH.DS.'doctor.php');
+require_once(LIB_PATH.DS.'department.php');
+>>>>>>> master
 
 ?>

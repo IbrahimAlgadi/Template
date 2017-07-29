@@ -1,7 +1,12 @@
 <footer class="w3-container w3-bottom w3-theme" style="padding:0px">
   <div class="w3-row">
+<<<<<<< HEAD
+  <div class="w3-left" style="padding-left: 5px;">Powered by: I3M</div>
+  <div class="copy-right w3-right" style="margin-right: 19%;">Copyright <i class="fa fa-copyright"></i> 2017</div>
+=======
   <div class="w3-left" style="padding-left: 5px;">Powered by: Twilight</div>
   <div class="copy-right w3-right" style="margin-right: 19%;">Copyright <i class="fa fa-copyright"></i> <?php echo date('Y');?></div>
+>>>>>>> master
   </div>
 </footer>
 
