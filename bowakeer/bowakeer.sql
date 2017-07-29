@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bowakeer`
+-- Database: `i3m`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `accounts_payables`
 --
 
-CREATE TABLE `accounts_payables` (
+CREATE TABLE `account_payables` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL,
   `end_date` date NOT NULL,
@@ -37,10 +37,10 @@ CREATE TABLE `accounts_payables` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `accounts_payables`
+-- Dumping data for table `account_payables`
 --
 
-INSERT INTO `accounts_payables` (`id`, `name`, `end_date`, `cheque_number`, `cheque_date`, `bank_id`, `amount`) VALUES
+INSERT INTO `account_payables` (`id`, `name`, `end_date`, `cheque_number`, `cheque_date`, `bank_id`, `amount`) VALUES
 (1, 'acc1', '2017-08-01', 1, '2017-11-01', 1, 100000);
 
 -- --------------------------------------------------------
@@ -49,7 +49,7 @@ INSERT INTO `accounts_payables` (`id`, `name`, `end_date`, `cheque_number`, `che
 -- Table structure for table `accounts_reciveables`
 --
 
-CREATE TABLE `accounts_reciveables` (
+CREATE TABLE `account_receiveables` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL,
   `end_date` date NOT NULL,
@@ -60,10 +60,10 @@ CREATE TABLE `accounts_reciveables` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `accounts_reciveables`
+-- Dumping data for table `account_receiveables`
 --
 
-INSERT INTO `accounts_reciveables` (`id`, `name`, `end_date`, `cheque_number`, `cheque_date`, `bank_id`, `amount`) VALUES
+INSERT INTO `account_receiveables` (`id`, `name`, `end_date`, `cheque_number`, `cheque_date`, `bank_id`, `amount`) VALUES
 (1, 'acc1', '2017-07-05', 1, '2017-07-29', 1, 20000),
 (2, 'acc2', '2017-12-12', 2, '2019-05-05', 1, 19999);
 
@@ -172,10 +172,10 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `company`
+-- Table structure for table `companies`
 --
 
-CREATE TABLE `company` (
+CREATE TABLE `companies` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -206,10 +206,10 @@ INSERT INTO `contracts` (`id`, `name`, `contract_type`, `period`, `start_date`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `curriculum`
+-- Table structure for table `curriculums`
 --
 
-CREATE TABLE `curriculum` (
+CREATE TABLE `curriculums` (
   `id` int(11) NOT NULL,
   `course_name` varchar(25) CHARACTER SET utf8 NOT NULL,
   `description` text CHARACTER SET utf8 NOT NULL,
@@ -249,10 +249,10 @@ CREATE TABLE `doctors` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Table structure for table `employees`
 --
 
-CREATE TABLE `employee` (
+CREATE TABLE `employees` (
   `id` int(11) NOT NULL,
   `name` varchar(25) DEFAULT NULL,
   `phone` int(11) DEFAULT NULL,
@@ -272,7 +272,7 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `name`, `phone`, `address`, `qualifications`, `date_of_birth`, `next_of_kin`, `next_of_kin_phone`, `annual_leave`, `ssid`, `driving_license`, `payroll_id`, `work_zone`) VALUES
+INSERT INTO `employees` (`id`, `name`, `phone`, `address`, `qualifications`, `date_of_birth`, `next_of_kin`, `next_of_kin_phone`, `annual_leave`, `ssid`, `driving_license`, `payroll_id`, `work_zone`) VALUES
 (2, 'Messi', 912345678, 'Rosario', 'Secondary', '0000-00-00', 'Hisham', 919718181, '8', '1221', 'Still', 1, 'Spain'),
 (3, 'Ibrahim', 899071898, 'Nasir', 'MD', '0000-00-00', 'Messi', 908989877, 'November', '131230', 'd23222-0', 1, 'Bahri'),
 (4, 'Rashad Altayeb', 2147483647, 'Wonderful', 'inline', '2017-02-09', 'Homeless', 2147483647, 'askdsl', '89iuo8u', 'knkl', 2, 'sudia'),
@@ -347,7 +347,7 @@ INSERT INTO `expenses` (`id`, `expense_date`, `amount`, `description`, `cat_id`)
 -- Table structure for table `expenses_category`
 --
 
-CREATE TABLE `expenses_category` (
+CREATE TABLE `expense_categories` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -391,10 +391,10 @@ CREATE TABLE `faculties` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `import`
+-- Table structure for table `imports`
 --
 
-CREATE TABLE `import` (
+CREATE TABLE `imports` (
   `id` int(11) NOT NULL,
   `company_id` int(11) NOT NULL,
   `import_date` date NOT NULL,
@@ -443,7 +443,7 @@ INSERT INTO `incomes` (`id`, `income_date`, `amount`, `description`, `cat_id`) V
 -- Table structure for table `income_category`
 --
 
-CREATE TABLE `income_category` (
+CREATE TABLE `income_categories` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -451,10 +451,10 @@ CREATE TABLE `income_category` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laboratory`
+-- Table structure for table `lab_tests`
 --
 
-CREATE TABLE `laboratory` (
+CREATE TABLE `lab_tests` (
   `id` int(11) NOT NULL,
   `test` varchar(25) DEFAULT NULL,
   `reference_range` text NOT NULL,
@@ -515,7 +515,7 @@ CREATE TABLE `patients` (
 -- Table structure for table `payroll`
 --
 
-CREATE TABLE `payroll` (
+CREATE TABLE `payrolls` (
   `id` int(11) NOT NULL,
   `start_date` date DEFAULT NULL,
   `salary` int(11) DEFAULT NULL,
@@ -523,10 +523,10 @@ CREATE TABLE `payroll` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `payroll`
+-- Dumping data for table `payrolls`
 --
 
-INSERT INTO `payroll` (`id`, `start_date`, `salary`, `period`) VALUES
+INSERT INTO `payrolls` (`id`, `start_date`, `salary`, `period`) VALUES
 (1, '2017-07-11', 1000, '7 years'),
 (2, '2017-07-20', 12100, '5 years');
 
@@ -594,16 +594,16 @@ CREATE TABLE `suppliers` (
 --
 
 --
--- Indexes for table `accounts_payables`
+-- Indexes for table `account_payables`
 --
-ALTER TABLE `accounts_payables`
+ALTER TABLE `account_payables`
   ADD PRIMARY KEY (`id`),
   ADD KEY `bank_id` (`bank_id`);
 
 --
--- Indexes for table `accounts_reciveables`
+-- Indexes for table `account_receiveables`
 --
-ALTER TABLE `accounts_reciveables`
+ALTER TABLE `account_receiveables`
   ADD PRIMARY KEY (`id`),
   ADD KEY `bank_id` (`bank_id`);
 
@@ -641,9 +641,9 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `company`
+-- Indexes for table `companies`
 --
-ALTER TABLE `company`
+ALTER TABLE `companies`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -668,7 +668,7 @@ ALTER TABLE `doctors`
 --
 -- Indexes for table `employee`
 --
-ALTER TABLE `employee`
+ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`),
   ADD KEY `payroll_id` (`payroll_id`);
 
@@ -695,9 +695,9 @@ ALTER TABLE `expenses`
   ADD KEY `cat_id` (`cat_id`);
 
 --
--- Indexes for table `expenses_category`
+-- Indexes for table `expense_categories`
 --
-ALTER TABLE `expenses_category`
+ALTER TABLE `expense_categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -714,9 +714,9 @@ ALTER TABLE `export_details`
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `import`
+-- Indexes for table `imports`
 --
-ALTER TABLE `import`
+ALTER TABLE `imports`
   ADD PRIMARY KEY (`id`),
   ADD KEY `company_id` (`company_id`);
 
@@ -735,15 +735,15 @@ ALTER TABLE `incomes`
   ADD KEY `cat_id` (`cat_id`);
 
 --
--- Indexes for table `income_category`
+-- Indexes for table `income_categories`
 --
-ALTER TABLE `income_category`
+ALTER TABLE `income_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `laboratory`
+-- Indexes for table `lab_tests`
 --
-ALTER TABLE `laboratory`
+ALTER TABLE `lab_tests`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -768,7 +768,7 @@ ALTER TABLE `patients`
 --
 -- Indexes for table `payroll`
 --
-ALTER TABLE `payroll`
+ALTER TABLE `payrolls`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -785,12 +785,12 @@ ALTER TABLE `products`
 --
 -- AUTO_INCREMENT for table `accounts_payables`
 --
-ALTER TABLE `accounts_payables`
+ALTER TABLE `account_payables`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `accounts_reciveables`
 --
-ALTER TABLE `accounts_reciveables`
+ALTER TABLE `account_receiveables`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `allowances`
@@ -820,7 +820,7 @@ ALTER TABLE `categories`
 --
 -- AUTO_INCREMENT for table `company`
 --
-ALTER TABLE `company`
+ALTER TABLE `companies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `contracts`
@@ -838,9 +838,9 @@ ALTER TABLE `departments`
 ALTER TABLE `doctors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `employee`
+-- AUTO_INCREMENT for table `employees`
 --
-ALTER TABLE `employee`
+ALTER TABLE `employees`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `employee_cars`
@@ -858,9 +858,9 @@ ALTER TABLE `end_vouchers`
 ALTER TABLE `expenses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `expenses_category`
+-- AUTO_INCREMENT for table `expense_categories`
 --
-ALTER TABLE `expenses_category`
+ALTER TABLE `expense_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `exports`
@@ -873,9 +873,9 @@ ALTER TABLE `exports`
 ALTER TABLE `export_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `import`
+-- AUTO_INCREMENT for table `imports`
 --
-ALTER TABLE `import`
+ALTER TABLE `imports`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `import_details`
@@ -888,14 +888,14 @@ ALTER TABLE `import_details`
 ALTER TABLE `incomes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `income_category`
+-- AUTO_INCREMENT for table `income_categories`
 --
-ALTER TABLE `income_category`
+ALTER TABLE `income_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `laboratory`
+-- AUTO_INCREMENT for table `lab_tests`
 --
-ALTER TABLE `laboratory`
+ALTER TABLE `lab_tests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `orders`
@@ -913,9 +913,9 @@ ALTER TABLE `order_details`
 ALTER TABLE `patients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `payroll`
+-- AUTO_INCREMENT for table `payrolls`
 --
-ALTER TABLE `payroll`
+ALTER TABLE `payrolls`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `products`
@@ -929,33 +929,33 @@ ALTER TABLE `products`
 --
 -- Constraints for table `accounts_payables`
 --
-ALTER TABLE `accounts_payables`
-  ADD CONSTRAINT `accounts_payables_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `banks` (`id`);
+ALTER TABLE `account_payables`
+  ADD CONSTRAINT `account_payables_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `banks` (`id`);
 
 --
--- Constraints for table `accounts_reciveables`
+-- Constraints for table `account_receiveables`
 --
-ALTER TABLE `accounts_reciveables`
-  ADD CONSTRAINT `accounts_reciveables_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `banks` (`id`);
+ALTER TABLE `account_receiveables`
+  ADD CONSTRAINT `account_receiveables_ibfk_1` FOREIGN KEY (`bank_id`) REFERENCES `banks` (`id`);
 
 --
 -- Constraints for table `allowances`
 --
 ALTER TABLE `allowances`
-  ADD CONSTRAINT `allowances_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`id`);
+  ADD CONSTRAINT `allowances_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`id`);
 
 --
 -- Constraints for table `employee_cars`
 --
 ALTER TABLE `employee_cars`
-  ADD CONSTRAINT `employee_cars_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`id`),
+  ADD CONSTRAINT `employee_cars_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`id`),
   ADD CONSTRAINT `employee_cars_ibfk_2` FOREIGN KEY (`auto_id`) REFERENCES `automotives` (`id`);
 
 --
 -- Constraints for table `end_vouchers`
 --
 ALTER TABLE `end_vouchers`
-  ADD CONSTRAINT `end_vouchers_ibfk_1` FOREIGN KEY (`payroll_id`) REFERENCES `payroll` (`id`);
+  ADD CONSTRAINT `end_vouchers_ibfk_1` FOREIGN KEY (`payroll_id`) REFERENCES `payrolls` (`id`);
 
 --
 -- Constraints for table `expenses`
