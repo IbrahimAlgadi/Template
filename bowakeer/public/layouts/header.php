@@ -61,7 +61,7 @@ body {font-family: "Roboto", sans-serif}
   <div>
     <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('sm')" href="javascript:void(0)"><i class="fa fa-shopping-cart"></i> Sales and Marketing <i class="fa fa-caret-down w3-right"></i></a>
     <div id="sm" class="w3-hide w3-animate-zoom">
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-bar-chart"></i> Sales</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="orders.php">&nbsp;&nbsp;<i class="fa fa-bar-chart"></i> Sales</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-chain"></i> Suppliers</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-male"></i><i class="fa fa-female"></i> Customers</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-retweet"></i> Refunds</a>
@@ -81,6 +81,14 @@ body {font-family: "Roboto", sans-serif}
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-dashboard"></i> Sales</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-paste"></i> Accounts</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-pencil-square-o"></i> Inventory</a>
+    </div>
+  </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('edu')" href="javascript:void(0)"><i class="fa fa-line-chart"></i> Education <i class="fa fa-caret-down w3-right"></i></a>
+    <div id="edu" class="w3-hide w3-animate-zoom">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-file-text-o"></i> Faculties</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-dashboard"></i> Students</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-paste"></i> Curriculum</a>
     </div>
   </div>
 </nav>
