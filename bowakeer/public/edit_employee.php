@@ -3,7 +3,7 @@
 	// Instead of finding all records, just find the records 
 	// for this page
     if ($_GET['id'] != ''){
-        $sql = "SELECT * FROM employee WHERE id={$_GET['id']}";    
+        $sql = "SELECT * FROM employees WHERE id={$_GET['id']}";    
         $edit_employee = employee::find_by_sql($sql);
     }else{
         echo "alert('Cannot Edit')";
@@ -49,7 +49,7 @@
           <input class="w3-input w3-border" type="text"  value="<?php echo $emp->driving_license; ?>" name="dl" required>
           <select class="w3-select w3-border" name="pid">
           <?php
-                   $sql = "SELECT id FROM payroll";
+                   $sql = "SELECT id FROM payrolls";
                    $result = payroll::find_by_sql($sql);
                    foreach($result as $op){
                     $option = "<option value=\"{$op->id}\"" ;

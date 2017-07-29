@@ -1,13 +1,13 @@
 <?php require_once("../../../includes/initialize.php"); ?>
 <?php
-    $acc_pay = new contract();
-    $acc_pay->id = (int)$_GET['id'];
+    $con = new contract();
+    $con->id = (int)$_GET['id'];
     
-    if($acc_pay->delete()){
+    if($con->delete()){
         //echo "<script>alert(\"Deleted Successfult\")</script>";
-        redirect_to('../../employees.php');
+        redirect_to('../../contracts.php');
     }else{
         //echo "<script>alert(\"Not Deleted\")</script>";
-        redirect_to('../../employees.php');
+        redirect_to('../../contracts.php');
     }
 ?>

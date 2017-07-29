@@ -1,13 +1,14 @@
 <?php require_once("../../../includes/initialize.php"); ?>
 <?php
-	$py = new payroll();
-    $py->id = (int)$_GET['id'];
     
-    if($py->delete()){
+    $inc = new lab_test();
+    $inc->id = (int)$_GET['id'];
+    
+    if($inc->delete()){
         //echo "<script>alert(\"Deleted Successfult\")</script>";
-        redirect_to('../../payrolls.php');
+        redirect_to('../../lab_tests.php');
     }else{
         //echo "<script>alert(\"Not Deleted\")</script>";
-        redirect_to('../../payrolls.php');
+        redirect_to('../../lab_tests.php');
     }
 ?>

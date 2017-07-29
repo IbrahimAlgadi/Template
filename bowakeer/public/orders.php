@@ -123,7 +123,7 @@
 
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print <i class="fa fa-print" ></i></button>
         </div>
       </div>
 

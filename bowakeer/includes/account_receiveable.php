@@ -3,16 +3,19 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class bank extends DatabaseObject {
+class account_receiveable extends DatabaseObject {
 	
-	protected static $table_name="laboratories";
+	protected static $table_name="account_receiveables";
     
-	protected static $db_fields = array('id', 'test', 'reference_range', 'unit');
+	protected static $db_fields = array('id', 'name', 'end_date', 'cheque_number', 'cheque_date', 'bank_id','amount');
 	
 	public $id;
-    public $test;
-	public $reference_range;
-	public $unit;
+    public $name;
+	public $end_date;
+    public $cheque_number;
+    public $cheque_date;
+    public $bank_id;
+	public $amount;
     
 	// Common Database Methods
 	public static function find_all() {

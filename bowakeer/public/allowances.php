@@ -77,7 +77,7 @@
           <select class="w3-select w3-border" name="emp_id">
           <!--RFC: Here Change the id and the table name to corrospond to the class you chosed -->
           <?php
-                   $sql = "SELECT id FROM employee";
+                   $sql = "SELECT id FROM employees";
                    $result = employee::find_by_sql($sql);
                    foreach($result as $op){
                     //change the $op -> to what you selected
@@ -85,7 +85,7 @@
                      echo $option;
                    }
                 ?></select>
-          <input class="w3-input w3-border" type="date" placeholder="Allowence Date" name="allow_date" required>
+          <input class="w3-input w3-border" type="date" placeholder="Allowance Date" name="allow_date" required>
           <input class="w3-input w3-border" type="number" placeholder="Amount" name="amount" required>
         </div>
       
@@ -144,7 +144,7 @@
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
         <!--RFC: This button is used to print the resulted table -->
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print <i class="fa fa-print" ></i></button>
         </div>
       </div>
 

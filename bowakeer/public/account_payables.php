@@ -7,10 +7,10 @@
 	$page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 
 	// 2. records per page ($per_page)
-	$per_page = 1;
+	$per_page = 3;
 
 	// 3. total record count ($total_count)
-	$total_count = accounts_payable::count_all();
+	$total_count = account_payable::count_all();
 	
 
 	// Find all photos
@@ -21,12 +21,12 @@
 	
 	// Instead of finding all records, just find the records 
 	// for this page
-	$sql = "SELECT * FROM accounts_payables ";
+	$sql = "SELECT * FROM account_payables ";
 	$sql .= "LIMIT {$per_page} ";
 	$sql .= "OFFSET {$pagination->offset()}";
-	$accounts_payables = accounts_payable::find_by_sql($sql);
-    $sql_all = "SELECT * FROM accounts_payables ";
-    $all_accounts_payables = accounts_payable::find_by_sql($sql_all);;
+	$accounts_payables = account_payable::find_by_sql($sql);
+    $sql_all = "SELECT * FROM account_payables ";
+    $all_accounts_payables = account_payable::find_by_sql($sql_all);;
 	
 	// Need to add ?page=$page to all links we want to 
 	// maintain the current page (or store $page in $session)
@@ -72,7 +72,7 @@
       </div>
 
 <!--RFC: Only Change the text and create the accounts_payable.php and put it inside the actions -->
-      <form class="w3-container" action="actions/add/accounts_payable.php" method="POST">
+      <form class="w3-container" action="actions/add/account_payable.php" method="POST">
         <div class="w3-section">
           <input class="w3-input w3-border" type="text" placeholder="Name" name="name" required>
           <input class="w3-input w3-border" type="date" placeholder="End Date" name="end_date" required>
@@ -82,7 +82,7 @@
           <!--RFC: Here Change the id and the table name to corrospond to the class you chosed -->
           <?php
                    $sql = "SELECT id FROM banks";
-                   $result = payroll::find_by_sql($sql);
+                   $result = bank::find_by_sql($sql);
                    foreach($result as $op){
                     //change the $op -> to what you selected
                     $option = "<option value=\"{$op->id}\"> {$op->id}</option>";
@@ -153,7 +153,7 @@
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
         <!--RFC: This button is used to print the resulted table -->
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print <i class="fa fa-print" ></i></button>
         </div>
       </div>
 
@@ -164,7 +164,7 @@
     
     <div class="w3-col m5">
     <div class="w3-container">
-    <form action="accounts_payables.php" >
+    <form action="account_payables.php" >
         <select class="w3-select w3-border" style="float: left; width: 60%;" name="filter">
             <option value="" selected>Choose Filter</option>
             <option value="1">Filter 1</option>
@@ -179,7 +179,7 @@
     </div>
     <div class="w3-right w3-col m4">
         <div class="w3-container">
-         <form action="accounts_payables.php" >
+         <form action="account_payables.php" >
         <select class="w3-select w3-border" style="float: left; width: 29%;" name="search_term">
             <option value="id" >id</option>
             <option value="name" selected>Name</option>
@@ -196,8 +196,8 @@
             <datalist id="cusom-list">
             <!--RFC: you need to change the select tarm and the database name -->
                 <?php
-                   $sql = "SELECT name FROM accounts_payables;";
-                   $result = accounts_payable::find_by_sql($sql);
+                   $sql = "SELECT name FROM account_payables;";
+                   $result = account_payable::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){
                     echo "<option value=\"{$op->name}\">" ;
@@ -241,11 +241,11 @@
                 <td><?php echo $emp->amount; ?></td>
                 <td class="w3-center  w3-right">
                 <!--RFC: The edit button send the id to the edit_accounts_payable.php -->
-                <a href="edit_accounts_payable.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
+                <a href="edit_account_payable.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
                 <!--RFC: The delete button submit the id to the delete_accounts_payable.php -->
-                <a href="actions/delete/delete_accounts_payable.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete accounts_payable: <?php echo $emp->name?>?')"><i class="fa fa-trash"></i></a>
+                <a href="actions/delete/delete_account_payable.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete account payable: <?php echo $emp->name?>?')"><i class="fa fa-trash"></i></a>
                 <!--RFC: The print function grabs the data and open anothe page print_emplpyee.php from it you can print the table -->
-                <a href="actions/print/print_accounts_payable.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+                <a href="actions/print/print_account_payable.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -262,7 +262,7 @@
 	if($pagination->total_pages() > 1) {
 		
 		if($pagination->has_previous_page()) { 
-    	echo "<a href=\"accounts_payables.php?page=";
+    	echo "<a href=\"account_payables.php?page=";
       echo $pagination->previous_page();
       echo "\" class=\"w3-bar-item w3-button\">&laquo;</a> "; 
     }
@@ -271,12 +271,12 @@
 			if($i == $page) {
 				echo " <a href=\"#\" class=\"w3-bar-item w3-button w3-teal\">{$i}</a> ";
 			} else {
-				echo " <a href=\"accounts_payables.php?page={$i}\" class=\"w3-bar-item w3-button \">{$i}</a> "; 
+				echo " <a href=\"account_payables.php?page={$i}\" class=\"w3-bar-item w3-button \">{$i}</a> "; 
 			}
 		}
 
 		if($pagination->has_next_page()) { 
-			echo " <a href=\"accounts_payables.php?page=";
+			echo " <a href=\"account_payables.php?page=";
 			echo $pagination->next_page();
 			echo "\" class=\"w3-bar-item w3-button\">&raquo;</a> "; 
 		}

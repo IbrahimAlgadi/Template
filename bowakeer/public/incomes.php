@@ -80,7 +80,7 @@
           <select class="w3-select w3-border" name="cat_id">
           <!--RFC: Here Change the id and the table name to corrospond to the class you chosed -->
           <?php
-                   $sql = "SELECT id FROM categories";
+                   $sql = "SELECT id FROM income_categories";
                    $result = category::find_by_sql($sql);
                    foreach($result as $op){
                     //change the $op -> to what you selected
@@ -183,9 +183,9 @@
              <input list="cusom-list" type="text" class="w3-input w3-border cx-margin-right" style="float: left; width: 50%;" placeholder="Search.." title="Enter The Seach Term">
             <!-- We Will Fill This Datalist from database using PHP -->
             <datalist id="cusom-list">
-            <!--RFC: you need to change the select tarm and the database name -->
+            <!--RFC: you need to change the select term and the database name -->
                 <?php
-                   $sql = "SELECT amount FROM incomes;";
+                   $sql = "SELECT id FROM incomes;";
                    $result = income::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){

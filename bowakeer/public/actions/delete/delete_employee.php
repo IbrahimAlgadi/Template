@@ -10,12 +10,12 @@
         redirect_to('../employees.php');
     } */
     echo "Deleting Employer no ".$_GET['id'];
-    $sql = "DELETE FROM employee WHERE employee.id = {$_GET['id']}";
+    $sql = "DELETE FROM employees WHERE id = {$_GET['id']}";
     $database->query($sql);
     $result = ($database->affected_rows() == 1) ? true : false;
     
     
-    var_dump($result);
+    //var_dump($result);
     
     if($result){
         //echo "<script>alert(\"Deleted Successfult\")</script>";

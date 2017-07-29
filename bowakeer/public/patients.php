@@ -44,7 +44,7 @@
     <div class="w3-col m12">
     <div class="w3-bar">
    <a href="patients.php" class="w3-bar-item w3-button w3-round-medium">Home</a>
-   <a href="allowances.php" class="w3-bar-item w3-button w3-round-medium">Visits</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Visits</a>
 </div> 
 </div>
     </div>

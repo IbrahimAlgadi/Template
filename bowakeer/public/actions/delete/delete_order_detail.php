@@ -1,6 +1,6 @@
 <?php require_once("../../../includes/initialize.php"); ?>
 <?php
-    $ord_det = new order_details();
+    $ord_det = new order_detail();
     $ord_det->id = $_GET['id'];
     if($ord_det->delete()){
         //echo "<script>alert(\"Deleted Successfult\")</script>";

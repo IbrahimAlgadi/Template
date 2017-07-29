@@ -3,20 +3,16 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class accounts_reciveable extends DatabaseObject {
+class order_detail extends DatabaseObject {
 	
-	protected static $table_name="accounts_reciveables";
+	protected static $table_name="order_details";
     
-	protected static $db_fields = array('id', 'name', 'end_date', 'cheque_number', 'cheque_date', 'bank_id','amount');
+	protected static $db_fields = array('id','product_id','quantity');
 	
 	public $id;
-    public $name;
-	public $end_date;
-    public $cheque_number;
-    public $cheque_date;
-    public $bank_id;
-	public $amount;
-    
+    public $product_id;
+    public $quantity;
+	
 	// Common Database Methods
 	public static function find_all() {
 		return self::find_by_sql("SELECT * FROM ".self::$table_name);
@@ -50,7 +46,7 @@ class accounts_reciveable extends DatabaseObject {
     $object = new self;
 		// Simple, long-form approach:
 		// $object->id 				= $record['id'];
-		// $object->date 	= $record['date'];
+		// $object->order_date 	= $record['date'];
 		// $object->status 	= $record['status'];
 		// $object->customer_id = $record['customer_id'];
 		// $object->last_name 	= $record['last_name'];

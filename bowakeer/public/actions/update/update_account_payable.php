@@ -7,7 +7,7 @@
     //echo $_POST['id'];
     if(isset($_POST['submit'])) {
         
-        $acc_pay = new accounts_payable();
+        $acc_pay = new account_payable();
         /*echo "<pre>";
         var_dump($_POST);
         echo "</pre>";*/
@@ -27,7 +27,7 @@
         */
         if ($acc_pay->update()){
             echo "<script>alert('Done')</script>";
-            echo redirect_to("../../accounts_payables.php");
+            echo redirect_to("../../account_payables.php");
         }else{ 
             echo "<script>alert('Unable to update accounts_payable')</script>";
             //require_once("../../error.php");

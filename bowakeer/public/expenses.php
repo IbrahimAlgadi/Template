@@ -185,11 +185,11 @@
             <datalist id="cusom-list">
             <!--RFC: you need to change the select tarm and the database name -->
                 <?php
-                   $sql = "SELECT amount FROM expenses;";
+                   $sql = "SELECT description FROM expenses;";
                    $result = expense::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){
-                    echo "<option value=\"{$op->amount}\">" ;
+                    echo "<option value=\"{$op->description}\">" ;
                    }
                 ?>
             </datalist>

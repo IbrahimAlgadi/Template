@@ -3,8 +3,8 @@
 	// Instead of finding all records, just find the records 
 	// for this page
     if ($_GET['id'] != ''){
-        $sql = "SELECT * FROM accounts_reciveables WHERE id={$_GET['id']}";    
-        $edit_accounts_reciveable = accounts_reciveable::find_by_sql($sql);
+        $sql = "SELECT * FROM account_receiveables WHERE id={$_GET['id']}";    
+        $edit_accounts_reciveable = account_receiveable::find_by_sql($sql);
     }else{
         echo "alert('Cannot Edit')";
     }
@@ -16,7 +16,7 @@
 ?>
 
 <header class="w3-container w3-theme" style="padding:21px 32px">
-  <h1 class="w3-xlarge">Update Account Payable</h1>
+  <h1 class="w3-xlarge">Update Account Receivable</h1>
   
   
 </header>
@@ -33,7 +33,7 @@
         <div class="w3-center" >
         <br />
         
-		<form class="w3-container" action="actions/update/update_accounts_reciveable.php" method="POST">
+		<form class="w3-container" action="actions/update/update_account_receiveable.php" method="POST">
 <?php foreach($edit_accounts_reciveable as $emp): ?>
         <div class="w3-section">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $emp->id; ?>" name="id" required>

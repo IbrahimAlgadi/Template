@@ -4,25 +4,25 @@
 
     if(isset($_POST['submit'])) {
         
-        $ord = new order_details();
+        $exp = new lab_test();
         /*
         echo "<pre>";
         var_dump($_POST);
         echo "</pre>";
         */
-       
-        $ord->product_id = (int)$_POST['product_id'];
-        $ord->quantity = (int)$_POST['quantity'];
+        $exp->test = $_POST['test'];
+        $exp->reference_range = $_POST['ref'];
+        $exp->unit = $_POST['unit'];
         
         //echo "<br />";
         //echo "<pre>";
-        //var_dump($ord);
+        //var_dump($exp);
         //echo "</pre>";
-        if ($ord->create()){
+        if ($exp->create()){
             //$message_title = "Success";
             //$message_body = "You Have Submitted Information Successfuly";
             //require_once("../message.php");
-            echo redirect_to("../../order_details.php");
+            echo redirect_to("../../lab_tests.php");
         }else{ 
             //$message_title = "Faluire";
             //$message_body = "There is a problem trying";

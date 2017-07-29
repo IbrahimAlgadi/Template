@@ -21,11 +21,11 @@
 	
 	// Instead of finding all records, just find the records 
 	// for this page
-	$sql = "SELECT * FROM employee ";
+	$sql = "SELECT * FROM employees ";
 	$sql .= "LIMIT {$per_page} ";
 	$sql .= "OFFSET {$pagination->offset()}";
 	$employees = employee::find_by_sql($sql);
-    $sql_all = "SELECT * FROM employee ";
+    $sql_all = "SELECT * FROM employees ";
     $all_employees = employee::find_by_sql($sql_all);;
 	
 	// Need to add ?page=$page to all links we want to 
@@ -87,7 +87,7 @@
           <select class="w3-select w3-border" name="pid">
           <!--RFC: Here Change the id and the table name to corrospond to the class you chosed -->
           <?php
-                   $sql = "SELECT id FROM payroll";
+                   $sql = "SELECT id FROM payrolls";
                    $result = payroll::find_by_sql($sql);
                    foreach($result as $op){
                     //change the $op -> to what you selected
@@ -159,7 +159,7 @@
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
         <!--RFC: This button is used to print the resulted table -->
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print <i class="fa fa-print" ></i></button>
         </div>
       </div>
 
@@ -202,7 +202,7 @@
             <datalist id="cusom-list">
             <!--RFC: you need to change the select tarm and the database name -->
                 <?php
-                   $sql = "SELECT name FROM employee;";
+                   $sql = "SELECT name FROM employees;";
                    $result = employee::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){

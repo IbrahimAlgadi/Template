@@ -37,12 +37,11 @@ require_once(LIB_PATH.DS.'contract.php');
 require_once(LIB_PATH.DS.'income.php');
 require_once(LIB_PATH.DS.'expense.php');
 require_once(LIB_PATH.DS.'category.php');
-require_once(LIB_PATH.DS.'comment.php');
 require_once(LIB_PATH.DS.'order.php');
-require_once(LIB_PATH.DS.'order_details.php');
+require_once(LIB_PATH.DS.'order_detail.php');
 require_once(LIB_PATH.DS.'doctor.php');
 require_once(LIB_PATH.DS.'department.php');
-require_once(LIB_PATH.DS.'laboratory.php');
+require_once(LIB_PATH.DS.'lab_test.php');
 require_once(LIB_PATH.DS.'patient.php');
 //require_once(LIB_PATH.DS.'appointment.php');
 

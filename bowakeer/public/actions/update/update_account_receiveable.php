@@ -7,7 +7,7 @@
     //echo $_POST['id'];
     if(isset($_POST['submit'])) {
         
-        $acc_pay = new accounts_reciveable();
+        $acc_pay = new account_receiveable();
         /*echo "<pre>";
         var_dump($_POST);
         echo "</pre>";*/
@@ -27,7 +27,7 @@
         */
         if ($acc_pay->update()){
             echo "<script>alert('Done')</script>";
-            echo redirect_to("../../accounts_reciveables.php");
+            echo redirect_to("../../account_receiveables.php");
         }else{ 
             echo "<script>alert('Unable to update accounts_reciveable')</script>";
             //require_once("../../error.php");

@@ -36,7 +36,7 @@ body {font-family: "Roboto", sans-serif}
     <div id="demo" class="w3-hide w3-animate-zoom">
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="patients.php">&nbsp;&nbsp;<i class="fa fa-wheelchair"></i> Patients</a>	
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="doctors.php">&nbsp;&nbsp;<i class="fa fa-user-md"></i> Doctors</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-flask"></i> Laboratory</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="lab_tests.php">&nbsp;&nbsp;<i class="fa fa-flask"></i> Laboratory</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-calendar-check-o"></i> Appointments</a>
     </div>
   </div>
@@ -44,8 +44,8 @@ body {font-family: "Roboto", sans-serif}
   <div>
     <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('acc')" href="javascript:void(0)"><i class="fa fa-calculator"></i> Accounting <i class="fa fa-caret-down w3-right"></i></a>
     <div id="acc" class="w3-hide w3-animate-zoom">
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="accounts_payables.php">&nbsp;&nbsp;<i class="fa fa-credit-card"></i> Accounts Payable</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="accounts_reciveables.php">&nbsp;&nbsp;<i class="fa fa-usd"></i> Accounts Receivable</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="account_payables.php">&nbsp;&nbsp;<i class="fa fa-credit-card"></i> Accounts Payable</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="account_receiveables.php">&nbsp;&nbsp;<i class="fa fa-usd"></i> Accounts Receivable</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="incomes.php">&nbsp;&nbsp;<i class="fa fa-money"></i> Income</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="expenses.php">&nbsp;&nbsp;<i class="fa fa-chain-broken"></i> Expenses</a>	
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="contracts.php">&nbsp;&nbsp;<i class="fa fa-handshake-o"></i> Contracts</a>
@@ -70,8 +70,8 @@ body {font-family: "Roboto", sans-serif}
   <div>
     <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('inv')" href="javascript:void(0)"><i class="fa fa-archive"></i> Inventory <i class="fa fa-caret-down w3-right"></i></a>
     <div id="inv" class="w3-hide w3-animate-zoom">
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-sign-in"></i> Imports</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-sign-out"></i> Exports</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="imports.php">&nbsp;&nbsp;<i class="fa fa-sign-in"></i> Imports</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="exports.php">&nbsp;&nbsp;<i class="fa fa-sign-out"></i> Exports</a>
     </div>
   </div>
   <div>
@@ -86,9 +86,9 @@ body {font-family: "Roboto", sans-serif}
   <div>
     <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('edu')" href="javascript:void(0)"><i class="fa fa-line-chart"></i> Education <i class="fa fa-caret-down w3-right"></i></a>
     <div id="edu" class="w3-hide w3-animate-zoom">
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-file-text-o"></i> Faculties</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-dashboard"></i> Students</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-paste"></i> Curriculum</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="faculties.php">&nbsp;&nbsp;<i class="fa fa-file-text-o"></i> Faculties</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="students.php">&nbsp;&nbsp;<i class="fa fa-dashboard"></i> Students</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="curriculum.php">&nbsp;&nbsp;<i class="fa fa-paste"></i> Curriculum</a>
     </div>
   </div>
 </nav>

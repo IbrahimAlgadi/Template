@@ -66,7 +66,7 @@
       <h3>Add</h3>
       </div>
 
-      <form class="w3-container" action="actions/add/order_details.php" method="POST">
+      <form class="w3-container" action="actions/add/order_detail.php" method="POST">
         <div class="w3-section">
           
           <input class="w3-input w3-border" type="text" placeholder="Product_id" name="product_id" required>
@@ -126,7 +126,7 @@
 
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print <i class="fa fa-print" ></i></button>
         </div>
       </div>
 
@@ -197,8 +197,8 @@
                 <td><?php echo $ord_d->product_id; ?></td>
                 <td><?php echo $ord_d->quantity; ?></td>
                 <td class="w3-center  w3-right">
-                <a href="edit_order_details.php?id=<?php echo $ord_d->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
-                <a href="actions/delete/delete_order_details.php?id=<?php echo $ord_d->id?>" class="w3-button w3-button-small w3-red" onclick="return confirm('Are you sure you want to delete ord_der: <?php echo $ord_d->id?>?')" title="Delete"><i class="fa fa-trash"></i></a></td>
+                <a href="edit_order_detail.php?id=<?php echo $ord_d->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
+                <a href="actions/delete/delete_order_detail.php?id=<?php echo $ord_d->id?>" class="w3-button w3-button-small w3-red" onclick="return confirm('Are you sure you want to delete ord_der: <?php echo $ord_d->id?>?')" title="Delete"><i class="fa fa-trash"></i></a></td>
                 
             </tr>
             <?php endforeach; ?>

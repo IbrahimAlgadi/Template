@@ -3,8 +3,8 @@
 	// Instead of finding all records, just find the records 
 	// for this page
     if ($_GET['id'] != ''){
-        $sql = "SELECT * FROM accounts_payables WHERE id={$_GET['id']}";    
-        $edit_accounts_payable = accounts_payable::find_by_sql($sql);
+        $sql = "SELECT * FROM account_payables WHERE id={$_GET['id']}";    
+        $edit_accounts_payable = account_payable::find_by_sql($sql);
     }else{
         echo "alert('Cannot Edit')";
     }
@@ -33,7 +33,7 @@
         <div class="w3-center" >
         <br />
         
-		<form class="w3-container" action="actions/update/update_accounts_payable.php" method="POST">
+		<form class="w3-container" action="actions/update/update_account_payable.php" method="POST">
 <?php foreach($edit_accounts_payable as $emp): ?>
         <div class="w3-section">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $emp->id; ?>" name="id" required>

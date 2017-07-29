@@ -5,7 +5,7 @@ require_once(LIB_PATH.DS.'database.php');
 
 class employee extends DatabaseObject {
 	
-	protected static $table_name="employee";
+	protected static $table_name="employees";
     
 	protected static $db_fields = array('id' , 'name',	'phone', 'address', 'qualifications', 'date_of_birth', 'next_of_kin', 'next_of_kin_phone', 'annual_leave', 'ssid', 'driving_license', 'payroll_id', 'work_zone');
 	

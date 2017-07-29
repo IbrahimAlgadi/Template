@@ -4,7 +4,7 @@
 
     if(isset($_POST['submit'])) {
         
-        $Emp = new accounts_reciveable();
+        $Emp = new account_receiveable();
         /*
         echo "<pre>";
         var_dump($_POST);
@@ -25,7 +25,7 @@
             //$message_title = "Success";
             //$message_body = "You Have Submitted Information Successfuly";
             //require_once("../message.php");
-            echo redirect_to("../../accounts_reciveables.php");
+            echo redirect_to("../../account_receiveables.php");
         }else{ 
             //$message_title = "Faluire";
             //$message_body = "There is a problem trying";

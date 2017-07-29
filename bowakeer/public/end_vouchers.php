@@ -133,7 +133,7 @@
 
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print <i class="fa fa-print" ></i></button>
         </div>
       </div>
 
@@ -169,11 +169,11 @@
             <!-- We Will Fill This Datalist from database using PHP -->
             <datalist id="cusom-list">
                 <?php
-                   $sql = "SELECT end_date FROM end_vouchers;";
+                   $sql = "SELECT payroll_id FROM end_vouchers;";
                    $result = end_voucher::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){
-                    echo "<option value=\"{$op->end_date}\">" ;
+                    echo "<option value=\"{$op->payroll_id}\">" ;
                    }
                 ?>
             </datalist>

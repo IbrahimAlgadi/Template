@@ -19,11 +19,11 @@
 	
 	// Instead of finding all records, just find the records 
 	// for this page
-	$sql = "SELECT * FROM payroll ";
+	$sql = "SELECT * FROM payrolls ";
 	$sql .= "LIMIT {$per_page} ";
 	$sql .= "OFFSET {$pagination->offset()}";
 	$payrolls = payroll::find_by_sql($sql);
-    $sql_all = "SELECT * FROM payroll ";
+    $sql_all = "SELECT * FROM payrolls ";
     $all_payrolls = payroll::find_by_sql($sql_all);;
 	
 	// Need to add ?page=$page to all links we want to 
@@ -95,7 +95,7 @@
 
       <div class="w3-center  w3-teal">
       <img class="w3-center w3-padding" src="images/logo.jpg" /><br>
-      <h3>Employees</h3>
+      <h3>Payrolls</h3>
       </div>
       <div class="w3-row w3-padding">
       <div id="modal-data"  class="w3-col m12" style="">
@@ -126,7 +126,7 @@
 
       <div class="w3-container w3-padding-16 w3-light-grey">
         <div class="w3-row">
-        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print<i class="fa fa-print" ></i></button>
+        <button id="prnt" class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" onclick="document.getElementById('prnt').style.display='none'; window.print();" >Print <i class="fa fa-print" ></i></button>
         </div>
       </div>
 
@@ -163,7 +163,7 @@
             <!-- We Will Fill This Datalist from database using PHP -->
             <datalist id="cusom-list">
                 <?php
-                   $sql = "SELECT period FROM payroll;";
+                   $sql = "SELECT period FROM payrolls;";
                    $result = payroll::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){

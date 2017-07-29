@@ -7,10 +7,10 @@
 	$page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
 
 	// 2. records per page ($per_page)
-	$per_page = 3;
+	$per_page = 1;
 
 	// 3. total record count ($total_count)
-	$total_count = doctor::count_all();
+	$total_count = lab_test::count_all();
 	
 
 	// Find all photos
@@ -21,12 +21,12 @@
 	
 	// Instead of finding all records, just find the records 
 	// for this page
-	$sql = "SELECT * FROM doctors ";
+	$sql = "SELECT * FROM lab_tests ";
 	$sql .= "LIMIT {$per_page} ";
 	$sql .= "OFFSET {$pagination->offset()}";
-	$doctors = doctor::find_by_sql($sql);
-    $sql_all = "SELECT * FROM doctors ";
-    $all_doctors = doctor::find_by_sql($sql_all);;
+	$lab_tests = lab_test::find_by_sql($sql);
+    $sql_all = "SELECT * FROM lab_tests ";
+    $all_lab_tests = lab_test::find_by_sql($sql_all);;
 	
 	// Need to add ?page=$page to all links we want to 
 	// maintain the current page (or store $page in $session)
@@ -43,8 +43,10 @@
   <div class="w3-row">
     <div class="w3-col m12">
     <div class="w3-bar">
-   <a href="doctors.php" class="w3-bar-item w3-button w3-round-medium">Home</a>
-   <a href="departments.php" class="w3-bar-item w3-button w3-round-medium">Departments</a>
+   <a href="lab_tests.php" class="w3-bar-item w3-button w3-round-medium">Home</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 1</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 2</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">Link 3</a>
 </div> 
 </div>
     </div>
@@ -69,27 +71,13 @@
       <h3>Add</h3>
       </div>
 
-<!--RFC: Only Change the text and create the doctor.php and put it inside the actions -->
-      <form class="w3-container" action="actions/add/doctor.php" method="POST">
+<!--RFC: Only Change the text and create the lab_test.php and put it inside the actions -->
+      <form class="w3-container" action="actions/add/lab_test.php" method="POST">
         <div class="w3-section">
-          <input class="w3-input w3-border" type="text" placeholder="Name" name="name" required>
-		  <input class="w3-input w3-border" type="number" placeholder="Age" name="age" required>
-          <input class="w3-input w3-border" type="text" placeholder="Gender" name="gender" required>
-          <input class="w3-input w3-border" placeholder="Specializations" name="specialization" required>
-		  <select class="w3-select w3-border" name="did">
-          <!--RFC: Here Change the id and the table name to corrospond to the class you chosed -->
-          <?php
-                   $sql = "SELECT id FROM departments";
-                   $result = department::find_by_sql($sql);
-                   foreach($result as $op){
-                    //change the $op -> to what you selected
-                    $option = "<option value=\"{$op->id}\"> {$op->id}</option>";
-                     echo $option;
-                   }
-                ?></select>
-          <input class="w3-input w3-border" type="text" placeholder="Marital Status" name="ms" required>
-          <input class="w3-input w3-border" type="number" placeholder="Phone" name="phone" required>
-          <input class="w3-input w3-border" type="text" placeholder="Address" name="address" required>
+          <input class="w3-input w3-border" type="text" placeholder="Test" name="name" required>
+          <input class="w3-input w3-border" type="text" placeholder="Reference Range" name="ref" required>
+          <input class="w3-input w3-border" type="text" placeholder="unit" name="unit" required>
+          
         </div>
       
 
@@ -100,7 +88,7 @@
         </div>
         <div class="w3-col m1">&nbsp;</div>
         <div class="w3-col m7">
-        <!--RFC: This button submits to doctor.php -->
+        <!--RFC: This button submits to lab_test.php -->
         <button class="w3-button w3-large w3-round-medium w3-block w3-teal w3-section w3-padding" type="submit" name="submit" value="submit">Save <i class="fa fa-floppy-o"></i></button>
         </div>
         </div>
@@ -114,8 +102,8 @@
     <div class="w3-modal-content w3-animate-zoom" style="max-width:100%">
 
       <div class="w3-center  w3-teal">
+      <h3>Laboratory Tests</h3>
       <img class="w3-center w3-padding" src="images/logo.jpg" /><br>
-      <h3>Doctors</h3>
       </div>
       <div class="w3-row w3-padding">
       <div id="modal-data"  class="w3-col m12" style="">
@@ -126,27 +114,17 @@
             <tr class=\"w3-teal\">
               <th>Id</th>
               <th>Name</th>
-			  <th>Age</th>
-			  <th>Gender</th>
-			  <th>Specialization</th>
-			  <th>Department_id</th>
-			  <th>Marital Status</th>
-              <th>Phone</th>
-              <th>Address</th>
+              <th>Reference range</th>
+              <th>Unit</th>
             </tr>"	
         ?>
         <!--RFC: This Foreach fill tha table with the graped data -->
-            <?php foreach($all_doctors as $doc): ?>
+            <?php foreach($all_lab_tests as $emp): ?>
             <tr>
-                <td><?php echo $doc->id; ?></td>
-                <td><?php echo $doc->name; ?></td>
-				<td><?php echo $doc->age; ?></td>
-				<td><?php echo $doc->gender; ?></td>
-				<td><?php echo $doc->specialization; ?></td>
-				<td><?php echo $doc->department_id; ?></td>
-				<td><?php echo $doc->marital_status; ?></td>
-                <td><?php echo $doc->phone; ?></td>
-                <td><?php echo $doc->address; ?></td>
+                <td><?php echo $emp->id; ?></td>
+                <td><?php echo $emp->test; ?></td>
+                <td><?php echo $emp->reference_range; ?></td>
+                <td><?php echo $emp->unit; ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -168,7 +146,7 @@
     
     <div class="w3-col m5">
     <div class="w3-container">
-    <form action="doctors.php" >
+    <form action="lab_tests.php" >
         <select class="w3-select w3-border" style="float: left; width: 60%;" name="filter">
             <option value="" selected>Choose Filter</option>
             <option value="1">Filter 1</option>
@@ -183,17 +161,12 @@
     </div>
     <div class="w3-right w3-col m4">
         <div class="w3-container">
-         <form action="doctors.php" >
+         <form action="lab_tests.php" >
         <select class="w3-select w3-border" style="float: left; width: 29%;" name="search_term">
             <option value="id" >id</option>
-            <option value="name" selected>Name</option>
-			<option value="age">Age</option>
-			<option value="gender">Gender</option>
-			<option value="specialization">Specialization</option>
-			<option value="dept_id">Department id</option>
-			<option value="ms">Marital Status</option>
-            <option value="phone">Phone</option>
-            <option value="address">Address</option>
+            <option value="test" selected>Test</option>
+            <option value="reference_range">Reference Range</option>
+            <option value="unit">Unit</option>
         </select>
         
     
@@ -202,11 +175,11 @@
             <datalist id="cusom-list">
             <!--RFC: you need to change the select tarm and the database name -->
                 <?php
-                   $sql = "SELECT name FROM doctors;";
-                   $result = doctor::find_by_sql($sql);
+                   $sql = "SELECT test FROM lab_tests;";
+                   $result = lab_test::find_by_sql($sql);
                    //var_dump($result);
                    foreach($result as $op){
-                    echo "<option value=\"{$op->name}\">" ;
+                    echo "<option value=\"{$op->test}\">" ;
                    }
                 ?>
             </datalist>
@@ -226,36 +199,26 @@
             echo " <table>            
             <tr class=\"w3-teal\">
               <th>Id</th>
-              <th>Name</th>
-			  <th>Age</th>
-			  <th>Gender</th>
-			  <th>Specialization</th>
-			  <th>Department_ID</th>
-			  <th>Marital Status</th>
-              <th>Phone</th>
-              <th>Address</th>
+              <th>Test</th>
+              <th>Reference Range</th>
+              <th>Unit</th>
               <th class=\"w3-center w3-right\"></th>
             </tr>"	
         ?>
         
-            <?php foreach($doctors as $doc): ?>
+            <?php foreach($lab_tests as $emp): ?>
             <tr>
-                <td><?php echo $doc->id; ?></td>
-                <td><?php echo $doc->name; ?></td>
-				<td><?php echo $doc->age; ?></td>
-				<td><?php echo $doc->gender; ?></td>
-				<td><?php echo $doc->specialization; ?></td>
-				<td><?php echo $doc->department_id; ?></td>
-				<td><?php echo $doc->marital_status; ?></td>
-                <td><?php echo $doc->phone; ?></td>
-                <td><?php echo $doc->address; ?></td>
+                <td><?php echo $emp->id; ?></td>
+                <td><?php echo $emp->test; ?></td>
+                <td><?php echo $emp->reference_range; ?></td>
+                <td><?php echo $emp->unit; ?></td>
                 <td class="w3-center  w3-right">
-                <!--RFC: The edit button send the id to the edit_doctor.php -->
-                <a href="edit_doctor.php?id=<?php echo $doc->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
-                <!--RFC: The delete button submit the id to the delete_doctor.php -->
-                <a href="actions/delete/delete_doctor.php?id=<?php echo $doc->id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete doctor: <?php echo $doc->name?>?')"><i class="fa fa-trash"></i></a>
-                <!--RFC: The print function grabs the data and open anothe page print_doctor.php from it you can print the table -->
-                <a href="actions/print/print_doctor.php?id=<?php echo $doc->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+                <!--RFC: The edit button send the id to the edit_lab_test.php -->
+                <a href="edit_lab_test.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
+                <!--RFC: The delete button submit the id to the delete_lab_test.php -->
+                <a href="actions/delete/delete_lab_test.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-red" title="Delete" onclick="return confirm('Are you sure you want to delete lab_test: <?php echo $emp->id?>?')"><i class="fa fa-trash"></i></a>
+                <!--RFC: The print function grabs the data and open anothe page print_emplpyee.php from it you can print the table -->
+                <a href="actions/print/print_lab_test.php?id=<?php echo $emp->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -272,7 +235,7 @@
 	if($pagination->total_pages() > 1) {
 		
 		if($pagination->has_previous_page()) { 
-    	echo "<a href=\"doctors.php?page=";
+    	echo "<a href=\"lab_tests.php?page=";
       echo $pagination->previous_page();
       echo "\" class=\"w3-bar-item w3-button\">&laquo;</a> "; 
     }
@@ -281,12 +244,12 @@
 			if($i == $page) {
 				echo " <a href=\"#\" class=\"w3-bar-item w3-button w3-teal\">{$i}</a> ";
 			} else {
-				echo " <a href=\"doctors.php?page={$i}\" class=\"w3-bar-item w3-button \">{$i}</a> "; 
+				echo " <a href=\"lab_tests.php?page={$i}\" class=\"w3-bar-item w3-button \">{$i}</a> "; 
 			}
 		}
 
 		if($pagination->has_next_page()) { 
-			echo " <a href=\"doctors.php?page=";
+			echo " <a href=\"lab_tests.php?page=";
 			echo $pagination->next_page();
 			echo "\" class=\"w3-bar-item w3-button\">&raquo;</a> "; 
 		}
