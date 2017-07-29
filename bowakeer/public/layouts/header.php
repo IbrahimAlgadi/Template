@@ -84,11 +84,11 @@ body {font-family: "Roboto", sans-serif}
     </div>
   </div>
   <div>
-    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('edu')" href="javascript:void(0)"><i class="fa fa-line-chart"></i> Education <i class="fa fa-caret-down w3-right"></i></a>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('edu')" href="javascript:void(0)"><i class="fa fa-university"></i> Education <i class="fa fa-caret-down w3-right"></i></a>
     <div id="edu" class="w3-hide w3-animate-zoom">
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="faculties.php">&nbsp;&nbsp;<i class="fa fa-file-text-o"></i> Faculties</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="students.php">&nbsp;&nbsp;<i class="fa fa-dashboard"></i> Students</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="curriculum.php">&nbsp;&nbsp;<i class="fa fa-paste"></i> Curriculum</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="faculties.php">&nbsp;&nbsp;<i class="fa fa-building-o"></i> Faculties</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="students.php">&nbsp;&nbsp;<i class="fa fa-child"></i> Students</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="curriculum.php">&nbsp;&nbsp;<i class="fa fa-file-text"></i> Curriculum</a>
     </div>
   </div>
 </nav>
