@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2017 at 05:59 PM
+-- Generation Time: Jul 29, 2017 at 03:01 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -206,6 +206,20 @@ INSERT INTO `contracts` (`id`, `name`, `contract_type`, `period`, `start_date`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `curriculum`
+--
+
+CREATE TABLE `curriculum` (
+  `id` int(11) NOT NULL,
+  `course_name` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `description` text CHARACTER SET utf8 NOT NULL,
+  `semesters` int(11) NOT NULL,
+  `credit_hours` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `departments`
 --
 
@@ -365,6 +379,18 @@ CREATE TABLE `export_details` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `faculties`
+--
+
+CREATE TABLE `faculties` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `location` text CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `import`
 --
 
@@ -458,6 +484,15 @@ CREATE TABLE `order_details` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `product_id`, `quantity`) VALUES
+(1, 1, 4),
+(2, 1, 3),
+(7, 2365, 46);
+
 -- --------------------------------------------------------
 
 --
@@ -508,6 +543,51 @@ CREATE TABLE `products` (
   `unit_price` int(11) NOT NULL,
   `sell_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `amount` int(11) NOT NULL,
+  `description` text CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `phone` int(11) NOT NULL,
+  `admission_date` date NOT NULL,
+  `next_of_kin` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `nok_phone` int(11) NOT NULL,
+  `address` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `nationality` text CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+CREATE TABLE `suppliers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `address` varchar(25) CHARACTER SET utf8 NOT NULL,
+  `personnel` int(11) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `homepage` text CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -826,7 +906,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `patients`
 --
