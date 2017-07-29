@@ -34,7 +34,7 @@ body {font-family: "Roboto", sans-serif}
   <div>
     <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('demo')" href="javascript:void(0)"><i class="fa fa-hospital-o"></i> Clinics <i class="fa fa-caret-down w3-right"></i></a>
     <div id="demo" class="w3-hide w3-animate-zoom">
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-wheelchair"></i> Patients</a>	
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="patients.php">&nbsp;&nbsp;<i class="fa fa-wheelchair"></i> Patients</a>	
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="doctors.php">&nbsp;&nbsp;<i class="fa fa-user-md"></i> Doctors</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-flask"></i> Laboratory</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-calendar-check-o"></i> Appointments</a>

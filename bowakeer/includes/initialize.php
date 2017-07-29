@@ -39,5 +39,8 @@ require_once(LIB_PATH.DS.'category.php');
 require_once(LIB_PATH.DS.'comment.php');
 require_once(LIB_PATH.DS.'doctor.php');
 require_once(LIB_PATH.DS.'department.php');
+require_once(LIB_PATH.DS.'patient.php');
+require_once(LIB_PATH.DS.'laboratory.php');
+//require_once(LIB_PATH.DS.'appointment.php');
 
 ?>
