@@ -44,11 +44,11 @@ body {font-family: "Roboto", sans-serif}
   <div>
     <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('acc')" href="javascript:void(0)"><i class="fa fa-calculator"></i> Accounting <i class="fa fa-caret-down w3-right"></i></a>
     <div id="acc" class="w3-hide w3-animate-zoom">
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-credit-card"></i> Accounts Payable</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-usd"></i> Accounts Receivable</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-money"></i> Income</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-chain-broken"></i> Expenses</a>	
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-handshake-o"></i> Contracts</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="accounts_payables.php">&nbsp;&nbsp;<i class="fa fa-credit-card"></i> Accounts Payable</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="accounts_reciveables.php">&nbsp;&nbsp;<i class="fa fa-usd"></i> Accounts Receivable</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="incomes.php">&nbsp;&nbsp;<i class="fa fa-money"></i> Income</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="expenses.php">&nbsp;&nbsp;<i class="fa fa-chain-broken"></i> Expenses</a>	
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="contracts.php">&nbsp;&nbsp;<i class="fa fa-handshake-o"></i> Contracts</a>
     </div>
   </div>
   <div>
