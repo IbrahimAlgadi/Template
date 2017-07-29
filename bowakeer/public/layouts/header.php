@@ -83,6 +83,14 @@ body {font-family: "Roboto", sans-serif}
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-pencil-square-o"></i> Inventory</a>
     </div>
   </div>
+  <div>
+    <a class="w3-bar-item w3-button bolded-bar-title w3-animate-left" onclick="myAccordion('edu')" href="javascript:void(0)"><i class="fa fa-line-chart"></i> Education <i class="fa fa-caret-down w3-right"></i></a>
+    <div id="edu" class="w3-hide w3-animate-zoom">
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-file-text-o"></i> Faculties</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-dashboard"></i> Students</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-paste"></i> Curriculum</a>
+    </div>
+  </div>
 </nav>
 
 

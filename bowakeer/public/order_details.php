@@ -8,7 +8,7 @@
 	$per_page = 3;
 
 	// 3. total record count ($total_count)
-	$total_count = order::count_all();
+	$total_count = order_details::count_all();
 	
 
 	// Find all photos
@@ -19,12 +19,12 @@
 	
 	// Instead of finding all records, just find the records 
 	// for this page
-	$sql = "SELECT * FROM orders ";
+	$sql = "SELECT * FROM order_details ";
 	$sql .= "LIMIT {$per_page} ";
 	$sql .= "OFFSET {$pagination->offset()}";
-	$orders = order::find_by_sql($sql);
-    $sql_all = "SELECT * FROM orders";
-    $all_orders = order::find_by_sql($sql_all);;
+	$orders = order_details::find_by_sql($sql);
+    $sql_all = "SELECT * FROM order_details";
+    $all_orders = order_details::find_by_sql($sql_all);
 	
 	// Need to add ?page=$page to all links we want to 
 	// maintain the current page (or store $page in $session)
@@ -42,7 +42,7 @@
     <div class="w3-col m12">
     <div class="w3-bar">
    <a href="#" class="w3-bar-item w3-button w3-round-medium">Home</a>
-   <a href="order_details.php" class="w3-bar-item w3-button w3-round-medium">Order details</a>
+   <a href="#" class="w3-bar-item w3-button w3-round-medium">End Voucher</a>
 </div> 
 </div>
     </div>
@@ -66,10 +66,11 @@
       <h3>Add</h3>
       </div>
 
-      <form class="w3-container" action="actions/add/order.php" method="POST">
+      <form class="w3-container" action="actions/add/order_details.php" method="POST">
         <div class="w3-section">
-          <input class="w3-input w3-border" type="text" placeholder="Id" name="id" required>
-          <input class="w3-input w3-border" type="date" placeholder="Date" name="date" required>
+          
+          <input class="w3-input w3-border" type="text" placeholder="Product_id" name="product_id" required>
+          <input class="w3-input w3-border" type="text" placeholder="Quantity" name="quantity" required>
          
         </div>
       
@@ -105,15 +106,17 @@
             echo " <table class=\"w3-dash\">            
             <tr class=\"w3-teal\">
               <th>Id</th>
-              <th>Date</th>
+              <th>Product_id</th>
+               <th>Quantity</th>
               
             </tr>"	
         ?>
         
-            <?php foreach($all_orders as $ord): ?>
+            <?php foreach($all_order_details as $ord_d): ?>
             <tr>
-                <td><?php echo $ord->id; ?></td>
-                <td><?php echo $ord->order_date; ?></td>
+                <td><?php echo $ord_d->id; ?></td>
+                <td><?php echo $ord_d->product_id; ?></td>
+                <td><?php echo $ord_d->quantity; ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -182,19 +185,21 @@
             echo " <table>            
             <tr class=\"w3-teal\">
               <th>Id</th>
-              <th>Date</th>
+              <th>Product_id</th>
+              <th>Quantity</th>
               <th class=\"w3-center w3-right\"></th>
             </tr>"	
         ?>
         
-            <?php foreach($orders as $ord): ?>
+            <?php foreach($orders as $ord_d): ?>
             <tr>
-                <td><?php echo $ord->id; ?></td>
-                <td><?php echo $ord->order_date; ?></td>
+                <td><?php echo $ord_d->id; ?></td>
+                <td><?php echo $ord_d->product_id; ?></td>
+                <td><?php echo $ord_d->quantity; ?></td>
                 <td class="w3-center  w3-right">
-                <a href="edit_order.php?id=<?php echo $ord->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
-                <a href="actions/delete/delete_order.php?id=<?php echo $ord->id?>" class="w3-button w3-button-small w3-red" onclick="return confirm('Are you sure you want to delete order: <?php echo $ord->id?>?')" title="Delete"><i class="fa fa-trash"></i></a>
-                <a href="actions/print/print_order.php?id=<?php echo $ord->id?>" class="w3-button w3-button-small w3-blue" title="Print"><i class="fa fa-print"></i></a></td>
+                <a href="edit_order_details.php?id=<?php echo $ord_d->id?>" class="w3-button w3-button-small w3-teal" title="Edit"><i class="fa fa-pencil"></i></a>    
+                <a href="actions/delete/delete_order_details.php?id=<?php echo $ord_d->id?>" class="w3-button w3-button-small w3-red" onclick="return confirm('Are you sure you want to delete ord_der: <?php echo $ord_d->id?>?')" title="Delete"><i class="fa fa-trash"></i></a></td>
+                
             </tr>
             <?php endforeach; ?>
         </table>

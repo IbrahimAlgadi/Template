@@ -38,5 +38,6 @@ require_once(LIB_PATH.DS.'expense.php');
 require_once(LIB_PATH.DS.'category.php');
 require_once(LIB_PATH.DS.'comment.php');
 require_once(LIB_PATH.DS.'order.php');
+require_once(LIB_PATH.DS.'order_details.php');
 
 ?>
