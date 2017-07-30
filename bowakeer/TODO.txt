@@ -8,3 +8,5 @@ relation.
 5 - changed the database name income to incomes
 6 - changed the database name exp_date to expense_date
 7 - changed the database name cont_type to contract_type
+8- you also forget to say that we changed the name of the table from bowakeer to i3m -_-.
+9- the connection between tables for the imports and exports is not added yet.

@@ -72,7 +72,7 @@
       </div>
 
 <!--RFC: Only Change the text and create the employee.php and put it inside the actions -->
-      <form class="w3-container" action="actions/add/employee.php" method="POST">
+      <form class="w3-container" action="actions/add/employee.php" method="POST" >
         <div class="w3-section">
           <input class="w3-input w3-border" type="text" placeholder="Name" name="name" required>
           <input class="w3-input w3-border" type="number" placeholder="Phone" name="phone" required>

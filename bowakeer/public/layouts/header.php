@@ -15,10 +15,10 @@ body {font-family: "Roboto", sans-serif}
 </style>
 <script type="text/javascript" src="javascripts/ajax.js"></script>
 
-<body>
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:250px;" id="mySidebar">
+<body >
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2" style="z-index:3;width:250px;  " id="mySidebar">
   
-  <div class="w3-container" style="width:inherit; height:150px; padding:0px;position: relative; ">
+  <div class="w3-container" style="width:inherit; height:150px; padding:0px;position: relative;">
     <img src="images/logo.jpg" style="width:inherit; height:inherit"> 
     <div id="accountpane" class="w3-center">
         <img src="images/user.png" style="width:25%; height:25%"> 
