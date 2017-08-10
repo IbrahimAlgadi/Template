@@ -36,11 +36,14 @@
 		<form class="w3-container" action="actions/update/update_export.php" method="POST">
  <!--RFC: This Code grabs the edited data and post it to the update_export.php -->
 <?php foreach($edit_export as $exp): ?>
-        <div class="w3-section">
+	<div class="w3-row">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $exp->id; ?>" name="id" required>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $exp->emp_id; ?>" name="emp_id" required>
-          <input class="w3-input w3-border" type="date"  value="<?php echo $exp->export_date; ?>" name="export_date" required>
+		  <div for="emp_id" class="w3-col m3 w3-left-align"><label  >Employee id</label></div>
+          <div class="w3-col m9"><input id="emp_id" class="w3-input w3-border" type="number"  value="<?php echo $exp->emp_id; ?>" name="emp_id" required></div>
+		  <div  for="export_date" class="w3-col m3 w3-left-align"><label >Export id</label></div>
+          <div class="w3-col m9"><input id="export_date" class="w3-input w3-border" type="date"  value="<?php echo $exp->export_date; ?>" name="export_date" required></div>
         </div>
+	</div>	
 <?php endforeach; ?>   		
     </div>
     </div>

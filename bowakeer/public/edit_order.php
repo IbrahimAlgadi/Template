@@ -36,10 +36,13 @@
 		<form class="w3-container" action="actions/update/update_order.php" method="POST">
  <!--RFC: This Code grabs the edited data and post it to the update_order.php -->
 <?php foreach($edit_order as $pay): ?>
+	<div class="w3-row">
         <div class="w3-section">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $pay->id; ?>" name="id" required>
-          <input class="w3-input w3-border" type="date"  value="<?php echo $pay->order_date; ?>" name="date" required>
+		  <div for="order_date" class="w3-col m3 w3-left-align"><label>Order date</label></div>
+          <div class="w3-col m9"><input id="order_date" class="w3-input w3-border" type="date"  value="<?php echo $pay->order_date; ?>" name="date" required>
         </div>
+	</div>
 <?php endforeach; ?>   		
     </div>
     </div>
