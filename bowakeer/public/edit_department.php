@@ -37,8 +37,15 @@
  <!--RFC: This Code grabs the edited data and post it to the update_department.php -->
 <?php foreach($edit_department as $dept): ?>
         <div class="w3-section">
+        <div class="w3-row">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $dept->id; ?>" name="id" required>
+          <div class="w3-col m3 w3-left-align">
+                    <label for="name">Department</label>
+          </div>
+          <div class="w3-col m9">
           <input class="w3-input w3-border" type="text"  value="<?php echo $dept->name; ?>" name="name" required>
+          </div>
+        </div>
         </div>
 <?php endforeach; ?>   		
     </div>

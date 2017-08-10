@@ -36,28 +36,79 @@
 		<form class="w3-container" action="actions/update/update_doctor.php" method="POST">
 <?php foreach($edit_doctor as $doc): ?>
         <div class="w3-section">
-          <input class="w3-input w3-border" type="hidden"  value="<?php echo $doc->id; ?>" name="id" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $doc->name; ?>" name="name" required>
-		  <input class="w3-input w3-border" type="number"  value="<?php echo $doc->age; ?>" name="age" required>
-		  <input class="w3-input w3-border" type="text"  value="<?php echo $doc->gender; ?>" name="gender" required>
-          <input class="w3-input w3-border" type="text" value="<?php echo $doc->specialization; ?>" name="specialization" required>
-          <select class="w3-select w3-border" name="did">
-          <?php
-                   $sql = "SELECT id FROM departments";
-                   $result = department::find_by_sql($sql);
-                   foreach($result as $op){
-                    $option = "<option value=\"{$op->id}\"" ;
-                     if($op->id==$doc->department_id){
-                       $option .= " selected ";
-                     }
-                     $option.= "> {$op->id}</option>";
-                     echo $option;
-                   }
-                ?></select>
-				
-          <input class="w3-input w3-border" type="text"  value="<?php echo $doc->marital_status; ?>" name="ms" required>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $doc->phone; ?>" name="phone" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $doc->address; ?>" name="address" required>
+            <div class="w3-row">
+                
+                <input class="w3-input w3-border" type="hidden"  value="<?php echo $doc->id; ?>" name="id" required>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="name">Name</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="name" class="w3-input w3-border" type="text"  value="<?php echo $doc->name; ?>" name="name" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="age">Age</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="age" class="w3-input w3-border" type="number"  value="<?php echo $doc->age; ?>" name="age" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="gender">Gender</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="gender" class="w3-input w3-border" type="text"  value="<?php echo $doc->gender; ?>" name="gender" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="specialization">Specialization</label>
+                </div>
+                <div id="specialization" class="w3-col m9">
+                    <input class="w3-input w3-border" type="text" value="<?php echo $doc->specialization; ?>" name="specialization" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="departments">Department</label>
+                </div>
+                <div class="w3-col m9">
+                    <select id="departments" class="w3-select w3-border" name="did">
+                    <?php
+                           $sql = "SELECT id FROM departments";
+                           $result = department::find_by_sql($sql);
+                           foreach($result as $op){
+                            $option = "<option value=\"{$op->id}\"" ;
+                             if($op->id==$doc->department_id){
+                               $option .= " selected ";
+                             }
+                             $option.= "> {$op->id}</option>";
+                             echo $option;
+                           }
+                        ?></select>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="ms">Marital Status</label>
+                </div>
+                <div class="w3-col m9">	
+                    <input id="ms" class="w3-input w3-border" type="text"  value="<?php echo $doc->marital_status; ?>" name="ms" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="phone">Phone</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="phone" class="w3-input w3-border" type="number"  value="<?php echo $doc->phone; ?>" name="phone" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="address">Address</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="address" class="w3-input w3-border" type="text"  value="<?php echo $doc->address; ?>" name="address" required>  
+                </div>
+            </div>
+          
         </div>
 <?php endforeach; ?>   
 

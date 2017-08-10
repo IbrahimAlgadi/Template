@@ -36,23 +36,51 @@
 		<form class="w3-container" action="actions/update/update_income.php" method="POST">
 <?php foreach($edit_income as $emp): ?>
         <div class="w3-section">
-          <input class="w3-input w3-border" type="hidden"  value="<?php echo $emp->id; ?>" name="id" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->income_date; ?>" name="income_date" required>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $emp->amount; ?>" name="amount" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->description; ?>" name="description" required>
-          <select class="w3-select w3-border" name="cat_id">
-          <?php
-                   $sql = "SELECT id FROM categories";
-                   $result = category::find_by_sql($sql);
-                   foreach($result as $op){
-                    $option = "<option value=\"{$op->id}\"" ;
-                     if($op->id==$emp->payroll_id){
-                       $option .= " selected ";
-                     }
-                     $option.= "> {$op->id}</option>";
-                     echo $option;
-                   }
-                ?></select>
+            <div class="w3-row">
+                
+                <input class="w3-input w3-border" type="hidden"  value="<?php echo $emp->id; ?>" name="id" required>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="income_date">Income Date</label>
+                  </div>
+                  <div class="w3-col m9">
+                <input id="income_date" class="w3-input w3-border" type="text"  value="<?php echo $emp->income_date; ?>" name="income_date" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="amount">Amount</label>
+                  </div>
+                  <div class="w3-col m9">
+                <input id="amount" class="w3-input w3-border" type="number"  value="<?php echo $emp->amount; ?>" name="amount" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="w3-col m9">
+                <input id="description" class="w3-input w3-border" type="text"  value="<?php echo $emp->description; ?>" name="description" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="cat_id">Category ID</label>
+                  </div>
+                  <div class="w3-col m9">
+                <select id="cat_id" class="w3-select w3-border" name="cat_id">
+                <?php
+                       $sql = "SELECT id FROM categories";
+                       $result = category::find_by_sql($sql);
+                       foreach($result as $op){
+                        $option = "<option value=\"{$op->id}\"" ;
+                         if($op->id==$emp->payroll_id){
+                           $option .= " selected ";
+                         }
+                         $option.= "> {$op->id}</option>";
+                         echo $option;
+                       }
+                    ?></select>
+                </div>
+                
+            </div>
         </div>
 <?php endforeach; ?>   
 

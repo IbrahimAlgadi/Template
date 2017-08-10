@@ -36,13 +36,59 @@
 		<form class="w3-container" action="actions/update/update_patient.php" method="POST">
 <?php foreach($edit_patient as $emp): ?>
         <div class="w3-section">
-          <input class="w3-input w3-border" type="hidden"  value="<?php echo $emp->id; ?>" name="id" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->name; ?>" name="name" required>
-		  <input class="w3-input w3-border" type="number"  value="<?php echo $emp->age; ?>" name="age" required>
-		  <input class="w3-input w3-border" type="text"  value="<?php echo $emp->gender; ?>" name="gender" required>
-		  <input class="w3-input w3-border" type="text"  value="<?php echo $emp->occupation; ?>" name="occupation" required>
-          <input class="w3-input w3-border" type="text"  value="<?php echo $emp->address; ?>" name="address" required>
-          <input class="w3-input w3-border" type="number"  value="<?php echo $emp->phone; ?>" name="phone" required>
+            <div class="w3-row">
+                
+                
+                <input id="id" class="w3-input w3-border" type="hidden"  value="<?php echo $emp->id; ?>" name="id" required>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="name">Name</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="name" class="w3-input w3-border" type="text"  value="<?php echo $emp->name; ?>" name="name" required>
+                </div>
+                
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="age">Age</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="age" class="w3-input w3-border" type="number"  value="<?php echo $emp->age; ?>" name="age" required>
+                </div>
+                
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="gender">Gender</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="gender" class="w3-input w3-border" type="text"  value="<?php echo $emp->gender; ?>" name="gender" required>
+                </div>
+                
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="occupation">Occupation</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="occupation" class="w3-input w3-border" type="text"  value="<?php echo $emp->occupation; ?>" name="occupation" required>
+                </div>
+                
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="address">Address</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="address" class="w3-input w3-border" type="text"  value="<?php echo $emp->address; ?>" name="address" required>
+                </div>
+                
+                
+                <div class="w3-col m3 w3-left-align">
+                <label for="phone">Phone</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="phone" class="w3-input w3-border" type="number"  value="<?php echo $emp->phone; ?>" name="phone" required>
+                </div>
+                
+            </div>
         </div>
 <?php endforeach; ?>   
 

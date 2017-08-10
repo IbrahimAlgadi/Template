@@ -74,10 +74,28 @@
 <!--RFC: Only Change the text and create the lab_test.php and put it inside the actions -->
       <form class="w3-container" action="actions/add/lab_test.php" method="POST">
         <div class="w3-section">
-          <input class="w3-input w3-border" type="text" placeholder="Test" name="name" required>
-          <input class="w3-input w3-border" type="text" placeholder="Reference Range" name="ref" required>
-          <input class="w3-input w3-border" type="text" placeholder="unit" name="unit" required>
-          
+            <div class="w3-row">
+                <div class="w3-col m3 w3-left-align">
+                    <label for="name">Name</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="name" class="w3-input w3-border" type="text" placeholder="Test" name="name" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="ref">Reference Range</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="ref" class="w3-input w3-border" type="text" placeholder="Reference Range" name="ref" required>
+                </div>
+                
+                <div class="w3-col m3 w3-left-align">
+                    <label for="unit">Unit</label>
+                </div>
+                <div class="w3-col m9">
+                    <input id="unit" class="w3-input w3-border" type="text" placeholder="unit" name="unit" required>
+                </div>
+            </div>
         </div>
       
 
