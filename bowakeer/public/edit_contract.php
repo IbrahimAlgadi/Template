@@ -37,13 +37,53 @@
  <!--RFC: This Code grabs the edited data and post it to the update_contract.php -->
 <?php foreach($edit_contract as $pay): ?>
         <div class="w3-section">
-          <input class="w3-input w3-border" type="hidden"  value="<?php echo $pay->id; ?>" name="id" required>
-          <input class="w3-input w3-border" type="text" placeholder="Name" value="<?php echo $pay->name ?>" name="name" required>
-          <input class="w3-input w3-border" type="number" placeholder="Contract Type" value="<?php echo $pay->contract_type ?>" name="contract_type" required>
-          <input class="w3-input w3-border" type="text" placeholder="Period" value="<?php echo $pay->period ?>" name="period" required>
-          <input class="w3-input w3-border" type="date" placeholder="Start Date" value="<?php echo $pay->start_date ?>" name="start_date" required>
-          <input class="w3-input w3-border" type="date" placeholder="End Date" value="<?php echo $pay->end_date ?>" name="end_date" required>
-          <input class="w3-input w3-border" type="text" placeholder="Description" value="<?php echo $pay->description ?>" name="description" required>
+            <div class="w3-row">
+            
+              <input class="w3-input w3-border" type="hidden"  value="<?php echo $pay->id; ?>" name="id" required>
+              
+              <div class="w3-col m3 w3-left-align">
+                    <label for="name">Name</label>
+              </div>
+              <div class="w3-col m9">
+                <input id="name" class="w3-input w3-border" type="text" placeholder="Name" value="<?php echo $pay->name ?>" name="name" required>
+              </div>
+              
+              <div class="w3-col m3 w3-left-align">
+                    <label for="contract_type">Contract Type</label>
+              </div>
+              <div class="w3-col m9">
+                <input id="contract_type" class="w3-input w3-border" type="number" placeholder="Contract Type" value="<?php echo $pay->contract_type ?>" name="contract_type" required>
+              </div>
+              
+              <div class="w3-col m3 w3-left-align">
+                    <label for="period">Period</label>
+              </div>
+              <div class="w3-col m9">
+                <input id="period" class="w3-input w3-border" type="text" placeholder="Period" value="<?php echo $pay->period ?>" name="period" required>
+              </div>
+              
+              <div class="w3-col m3 w3-left-align">
+                    <label for="start_date">Start Date</label>
+              </div>
+              <div class="w3-col m9">
+                <input id="start_date" class="w3-input w3-border" type="date" placeholder="Start Date" value="<?php echo $pay->start_date ?>" name="start_date" required>
+              </div>
+              
+              <div class="w3-col m3 w3-left-align">
+                    <label for="end_date">End Date</label>
+              </div>
+              <div class="w3-col m9">
+                <input id="end_date" class="w3-input w3-border" type="date" placeholder="End Date" value="<?php echo $pay->end_date ?>" name="end_date" required>
+              </div>
+              
+              <div class="w3-col m3 w3-left-align">
+                    <label for="description">Description</label>
+              </div>
+              <div class="w3-col m9">
+                <input id="description" class="w3-input w3-border" type="text" placeholder="Description" value="<?php echo $pay->description ?>" name="description" required>
+              </div>
+              
+            </div>
         </div>
 <?php endforeach; ?>   		
     </div>
