@@ -38,28 +38,28 @@
 <div class="w3-row">
         <div class="w3-section">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $emp->id; ?>" name="id" required>
-		  <div for="name" class="w3-col m3 w3-left-align"><label>Name</label></div>
-          <div class="w3-col m9"><input id="name" class="w3-input w3-border" type="text"  value="<?php echo $emp->name; ?>" name="name" required></div>
-		  <div for="phone" class="w3-col m3 w3-left-align"><label>Phone</label></div>
-          <div class="w3-col m9"><input id="phone" class="w3-input w3-border" type="number"  value="<?php echo $emp->phone; ?>" name="phone" required></div>
-		  <div for="address" class="w3-col m3 w3-left-align"><label>Address</label></div>
-          <div class="w3-col m9"><input id="addres" class="w3-input w3-border" type="text"  value="<?php echo $emp->address; ?>" name="address" required></div>
-		  <div for="qualifications" class="w3-col m3 w3-left-align"><label>Qualifications</label></div>
-          <div class="w3-col m9"><input id="qualifications" class="w3-input w3-border" type="text" value="<?php echo $emp->qualifications; ?>" name="qualifications" required></div>
-		  <div for="dob" class="w3-col m3 w3-left-align"><label>Dob</label></div>
-          <div class="w3-col m9"><input id="dob" class="w3-input w3-border" type="date"  value="<?php echo $emp->date_of_birth; ?>" name="dob" required></div>
-		  <div for="next_of_kin" class="w3-col m3 w3-left-align"><label>next of kin</label></div>
-          <div class="w3-col m9"><input id="next_of_kin" class="w3-input w3-border" type="text"  value="<?php echo $emp->next_of_kin; ?>" name="nok" required></div>
-		  <div for="next_of_kin_phone" class="w3-col m3 w3-left-align"><label>Nex of kin phone</label></div>
-          <div class="w3-col m9"><input id="next_of_kin_phone" class="w3-input w3-border" type="number"  value="<?php echo $emp->next_of_kin_phone; ?>" name="nokphone" required></div>
-		  <div for="annual_leave" class="w3-col m3 w3-left-align"><label>Annual leave</label></div>
-          <div class="w3-col m9"><input id="annual_leave" class="w3-input w3-border" type="text"  value="<?php echo $emp->annual_leave; ?>" name="al" required></div>
-		  <div for="ssid" class="w3-col m3 w3-left-align"><label>SSID/label></div>
-          <div class="w3-col m9"><input id="ssid" class="w3-input w3-border" type="text"  value="<?php echo $emp->ssid; ?>" name="ssid" required></div>
-   		  <div for="driving_license" class="w3-col m3 w3-left-align"><label>Driving license</label></div>
-          <div class="w3-col m9"><input id="driving_licese" class="w3-input w3-border" type="text"  value="<?php echo $emp->driving_license; ?>" name="dl" required></div>
-		  <div for="payroll_id" class="w3-col m3 w3-left-align"><label>Payroll id</label></div>
-          <div class="w3-col m9"><select id="payroll_id" class="w3-select w3-border" name="pid">
+		  <div   class="w3-col m3 w3-left-align"><label for="name" >Name</label></div>
+          <div   class="w3-col m9"><input id="name" class="w3-input w3-border" type="text"  value="<?php echo $emp->name; ?>" name="name" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="phone" >Phone</label></div>
+          <div   class="w3-col m9"><input id="phone" class="w3-input w3-border" type="number"  value="<?php echo $emp->phone; ?>" name="phone" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="address" >Address</label></div>
+          <div   class="w3-col m9"><input id="addres" class="w3-input w3-border" type="text"  value="<?php echo $emp->address; ?>" name="address" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="qualifications" >Qualifications</label></div>
+          <div   class="w3-col m9"><input id="qualifications" class="w3-input w3-border" type="text" value="<?php echo $emp->qualifications; ?>" name="qualifications" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="dob">Dob</label></div>
+          <div   class="w3-col m9"><input id="dob" class="w3-input w3-border" type="date"  value="<?php echo $emp->date_of_birth; ?>" name="dob" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="next_of_kin" >next of kin</label></div>
+          <div   class="w3-col m9"><input id="next_of_kin" class="w3-input w3-border" type="text"  value="<?php echo $emp->next_of_kin; ?>" name="nok" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="next_of_kin_phone" >Nex of kin phone</label></div>
+          <div   class="w3-col m9"><input id="next_of_kin_phone" class="w3-input w3-border" type="number"  value="<?php echo $emp->next_of_kin_phone; ?>" name="nokphone" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="annual_leave" >Annual leave</label></div>
+          <div   class="w3-col m9"><input id="annual_leave" class="w3-input w3-border" type="text"  value="<?php echo $emp->annual_leave; ?>" name="al" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="ssid" >SSID/label></div>
+          <div   class="w3-col m9"><input id="ssid" class="w3-input w3-border" type="text"  value="<?php echo $emp->ssid; ?>" name="ssid" required></div>
+   		  <div   class="w3-col m3 w3-left-align"><label for="driving_license" >Driving license</label></div>
+          <div   class="w3-col m9"><input id="driving_licese" class="w3-input w3-border" type="text"  value="<?php echo $emp->driving_license; ?>" name="dl" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="payroll_id">Payroll id</label></div>
+          <div   class="w3-col m9"><select id="payroll_id" class="w3-select w3-border" name="pid">
           <?php
                    $sql = "SELECT id FROM payrolls";
                    $result = payroll::find_by_sql($sql);
@@ -72,7 +72,7 @@
                      echo $option;
                    }
                 ?></select></div>
-		  <div for="work_zone" class="w3-col m3 w3-left-align"><label>Work zone</label></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="work_zone" >Work zone</label></div>
           <div class="w3-col m9"><input class="w3-input w3-border" type="text"  value="<?php echo $emp->work_zone; ?>" name="workz" required></div>
         </div>
 	</div>

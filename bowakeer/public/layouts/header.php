@@ -40,6 +40,9 @@ body {font-family: "Roboto", sans-serif}
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="doctors.php">&nbsp;&nbsp;<i class="fa fa-user-md"></i> Doctors</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="lab_tests.php">&nbsp;&nbsp;<i class="fa fa-flask"></i> Laboratory</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="appointments.php">&nbsp;&nbsp;<i class="fa fa-calendar-check-o"></i> Appointments</a>
+	  <a class="w3-bar-item w3-button bolded-bar-subitems" href="pharm_categories.php">&nbsp;&nbsp;<i class="fa fa-wheelchair"></i> Pharm_Categories</a>	
+	  <a class="w3-bar-item w3-button bolded-bar-subitems" href="xrays.php">&nbsp;&nbsp;<i class="fa fa-wheelchair"></i> Xrays</a>	
+	  <a class="w3-bar-item w3-button bolded-bar-subitems" href="symptoms.php">&nbsp;&nbsp;<i class="fa fa-wheelchair"></i> symptoms</a>	
     </div>
   </div>
   

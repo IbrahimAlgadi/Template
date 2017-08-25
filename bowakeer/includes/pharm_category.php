@@ -3,19 +3,15 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class patient extends DatabaseObject {
+class pharm_category extends DatabaseObject {
 	
-	protected static $table_name="patients";
+	protected static $table_name="pharm_categories";
     
-	protected static $db_fields = array('id' , 'name',	'age', 'gender', 'occupation', 'address', 'phone' );
+	protected static $db_fields = array('id', 'Name');
 	
 	public $id;
-    public $name;
-	public $age;
-	public $gender;
-	public $occupation;
-	public $address;
-	public $phone;
+    public $Name;
+
     
 	// Common Database Methods
 	public static function find_all() {
@@ -23,7 +19,7 @@ class patient extends DatabaseObject {
   }
   
   public static function find_by_id($id=0) {
-    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE id={$id} LIMIT 1");
+    $result_array = self::find_by_sql("SELECT * FROM ".self::$table_name." WHERE Id={$id} LIMIT 1");
 		return !empty($result_array) ? array_shift($result_array) : false;
   }
   

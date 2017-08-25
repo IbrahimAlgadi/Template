@@ -39,12 +39,12 @@
 	<div class="w3-row">
         <div class="w3-section">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $pay->id; ?>" name="id" required>
-		  <div for="start_date" class="w3-col m3 w3-left-align"><label>Sarte date</label></div>
-          <div class="w3-col m9"><input id="start_date" class="w3-input w3-border" type="text"  value="<?php echo $pay->start_date; ?>" name="sdate" required></div>
-		  <div for="salary" class="w3-col m3 w3-left-align"><label>Salary</label></div>
-          <div class="w3-col m9"><input id="salary" class="w3-input w3-border" type="number"  value="<?php echo $pay->salary; ?>" name="salary" required></div>
-		  <div for="period" class="w3-col m3 w3-left-align"><label>period</label></div>
-          <div class="w3-col m9"><input id="period" class="w3-input w3-border" type="text"  value="<?php echo $pay->period; ?>" name="period" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="start_date" >Sarte date</label></div>
+          <div   class="w3-col m9"><input id="start_date" class="w3-input w3-border" type="text"  value="<?php echo $pay->start_date; ?>" name="sdate" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="salary" >Salary</label></div>
+          <div   class="w3-col m9"><input id="salary" class="w3-input w3-border" type="number"  value="<?php echo $pay->salary; ?>" name="salary" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="period" >period</label></div>
+          <div   class="w3-col m9"><input id="period" class="w3-input w3-border" type="text"  value="<?php echo $pay->period; ?>" name="period" required></div>
         </div>
 	</div>
 <?php endforeach; ?>   		

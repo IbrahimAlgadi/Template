@@ -3,19 +3,16 @@
 // probably smart to require it before we start.
 require_once(LIB_PATH.DS.'database.php');
 
-class patient extends DatabaseObject {
+class symptom extends DatabaseObject {
 	
-	protected static $table_name="patients";
+	protected static $table_name="symptoms";
     
-	protected static $db_fields = array('id' , 'name',	'age', 'gender', 'occupation', 'address', 'phone' );
+	protected static $db_fields = array('id', 'name', 'cat_id','status');
 	
 	public $id;
     public $name;
-	public $age;
-	public $gender;
-	public $occupation;
-	public $address;
-	public $phone;
+	public $cat_id;
+	public $status;
     
 	// Common Database Methods
 	public static function find_all() {

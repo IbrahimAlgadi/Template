@@ -39,12 +39,12 @@
 	<div class="w3-row">
         <div class="w3-section">
           <input class="w3-input w3-border" type="hidden"  value="<?php echo $imp->id; ?>" name="id" required>
-		  <div for="company_id" class="w3-col m3 w3-left-align"><label >Company id</label></div>
-          <div class="w3-col m9"><input id="company_id" class="w3-input w3-border" type="number"  value="<?php echo $imp->company_id; ?>" name="company_id" required></div>
-		  <div for="import_date" class="w3-col m3 w3-left-align"><label >Import date</label></div>
-          <div class="w3-col m9"><input id="import_date" class="w3-input w3-border" type="date"  value="<?php echo $imp->import_date; ?>" name="import_date" required></div>
-		  <div for="payment_type" class="w3-col m3 w3-left-align"><label >Payment type</label></div>
-		  <div class="w3-col m9"><input class="w3-input w3-border" type="text"  value="<?php echo $imp->payment_type; ?>" name="payment_type" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="company_id" >Company id</label></div>
+          <div   class="w3-col m9"><input id="company_id" class="w3-input w3-border" type="number"  value="<?php echo $imp->company_id; ?>" name="company_id" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="import_date" >Import date</label></div>
+          <div   class="w3-col m9"><input id="import_date" class="w3-input w3-border" type="date"  value="<?php echo $imp->import_date; ?>" name="import_date" required></div>
+		  <div   class="w3-col m3 w3-left-align"><label for="payment_type" >Payment type</label></div>
+		  <div   class="w3-col m9"><input class="w3-input w3-border" type="text"  value="<?php echo $imp->payment_type; ?>" name="payment_type" required></div>
         </div>
 <?php endforeach; ?>   		
     </div>
