@@ -45,6 +45,6 @@ require_once(LIB_PATH.DS.'lab_test.php');
 require_once(LIB_PATH.DS.'patient.php');
 require_once(LIB_PATH.DS.'export.php');
 require_once(LIB_PATH.DS.'import.php');
-//require_once(LIB_PATH.DS.'appointment.php');
+require_once(LIB_PATH.DS.'appointment.php');
 
 ?>

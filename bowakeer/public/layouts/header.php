@@ -39,7 +39,7 @@ body {font-family: "Roboto", sans-serif}
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="patients.php">&nbsp;&nbsp;<i class="fa fa-wheelchair"></i> Patients</a>	
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="doctors.php">&nbsp;&nbsp;<i class="fa fa-user-md"></i> Doctors</a>
       <a class="w3-bar-item w3-button bolded-bar-subitems" href="lab_tests.php">&nbsp;&nbsp;<i class="fa fa-flask"></i> Laboratory</a>
-      <a class="w3-bar-item w3-button bolded-bar-subitems" href="#">&nbsp;&nbsp;<i class="fa fa-calendar-check-o"></i> Appointments</a>
+      <a class="w3-bar-item w3-button bolded-bar-subitems" href="appointments.php">&nbsp;&nbsp;<i class="fa fa-calendar-check-o"></i> Appointments</a>
     </div>
   </div>
   
